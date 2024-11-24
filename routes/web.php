@@ -19,6 +19,9 @@ Route::get('/', function () {
     return redirect()->route('login'); // Redirect to the login page
 });
 
+
+
+
 Route::middleware(['auth', 'admin'])->group(function () {
     // Dashboard route for admins
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

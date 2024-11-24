@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\User;
@@ -19,24 +20,31 @@ class UserController extends Controller
         return view('admin.users.create', compact('roles'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $pass = 'admin12345')
     {
+        // Validate input fields from the request
         $validated = $request->validate([
             'name' => 'required|string|max:55',
             'email' => 'required|email|unique:users',
-            'password' => 'required|string|min:8',
             'role_id' => 'required|exists:roles,id',
         ]);
 
+        // Validate the password parameter
+        if (!is_string($pass) || strlen($pass) < 8) {
+            return redirect()->back()->withErrors(['password' => 'The password parameter must be at least 8 characters long.']);
+        }
+
+        // Create the user
         $user = User::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
-            'password' => bcrypt($validated['password']),
+            'password' => bcrypt($pass), // Use the provided parameter
             'role_id' => $validated['role_id'],
         ]);
 
         return redirect()->route('users.index')->with('success', 'User created successfully!');
     }
+
 
     public function edit(User $user)
     {

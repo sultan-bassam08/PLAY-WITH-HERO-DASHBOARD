@@ -80,7 +80,7 @@
             <div class="sb-sidenav-menu">
                 <div class="nav">
                     <!-- Sidebar Header -->
-                    <div class="sb-sidenav-menu-heading">Core</div>
+                    <div class="sb-sidenav-menu-heading">ALL</div>
 
                     <!-- Dashboard Link -->
                     <a class="nav-link {{ request()->is('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">
@@ -104,6 +104,10 @@
                     <a class="nav-link {{ request()->is('matches*') ? 'active' : '' }}" href="{{ route('matches.index') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-futbol"></i></div>
                         Matches
+                    </a>
+                    <a class="nav-link {{ request()->is('categories*') ? 'active' : '' }}" href="{{ route('categories.index') }}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-futbol"></i></div>
+                        Categories
                     </a>
 
                    

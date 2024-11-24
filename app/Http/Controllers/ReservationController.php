@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GameMatch;
+use App\Models\Reservation;
+use App\Models\User;
 use Illuminate\Http\Request;
+
+use function PHPUnit\Framework\matches;
 
 class ReservationController extends Controller
 {
@@ -11,7 +16,11 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        //
+
+        // $users = User::all();
+        // $matches = GameMatch::all();
+        $reservations = Reservation::all();
+        return view('admin.reservations.index', compact("reservations"));
     }
 
     /**
@@ -19,7 +28,10 @@ class ReservationController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+        // dd($users);
+        $matches = GameMatch::all();
+        return view('admin.reservations.create', compact('users', 'matches'));
     }
 
     /**
@@ -41,9 +53,11 @@ class ReservationController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Reservation $reservation)
     {
-        //
+        $users = User::all();
+        $matches = GameMatch::all();
+        return view('admin.reservations.edit', compact('reservation', 'users', 'matches'));
     }
 
     /**
