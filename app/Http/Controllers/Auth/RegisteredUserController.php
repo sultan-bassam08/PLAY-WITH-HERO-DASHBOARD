@@ -20,7 +20,7 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        return view('user.auth.register');
     }
 
     /**
@@ -64,6 +64,6 @@ class RegisteredUserController extends Controller
         Auth::login($user);
     
         // Redirect to dashboard
-        return redirect()->route('dashboard'); // Replace with your dashboard route
+        return redirect()->route('home'); // Replace with your dashboard route
     }
 }

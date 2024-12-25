@@ -74,3 +74,27 @@
         });
     }
 </script>
+<script>
+    // Function to format the date as YYYY-MM-DD
+    function formatDate(date) {
+        const d = new Date(date);
+        let month = '' + (d.getMonth() + 1); // Months are zero-based
+        let day = '' + d.getDate();
+        const year = d.getFullYear();
+
+        if (month.length < 2) month = '0' + month;
+        if (day.length < 2) day = '0' + day;
+
+        return [year, month, day].join('-');
+    }
+
+    // Set up the date picker
+    const datePicker = document.getElementById('datePicker');
+    const today = new Date(); // Today's date
+    const lastDay = new Date(); // Set your "last day" here
+    lastDay.setDate(lastDay.getDate() + 30); // Example: 7 days from today
+
+    datePicker.min = formatDate(today); // Disable dates before today
+    datePicker.max = formatDate(lastDay); // Disable dates after the last day
+</script>
+

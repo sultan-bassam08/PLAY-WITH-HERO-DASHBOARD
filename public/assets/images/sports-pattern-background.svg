@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#1E2128"/>
+  
+  <!-- Pattern Definition -->
+  <defs>
+    <pattern id="sportsPattern" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+      <!-- Tennis Ball -->
+      <g opacity="0.05">
+        <circle cx="50" cy="50" r="20" fill="#ffffff"/>
+        <path d="M35 50 Q50 30, 65 50 Q50 70, 35 50" fill="none" stroke="#ffffff" stroke-width="2"/>
+      </g>
+      
+      <!-- Basketball -->
+      <g opacity="0.05" transform="translate(150, 50)">
+        <circle cx="0" cy="0" r="20" fill="#ffffff"/>
+        <path d="M-20 0 H20 M0 -20 V20" stroke="#1E2128" stroke-width="2"/>
+        <path d="M-14 -14 Q0 -20, 14 -14 Q20 0, 14 14 Q0 20, -14 14 Q-20 0, -14 -14" 
+              fill="none" stroke="#1E2128" stroke-width="2"/>
+      </g>
+      
+      <!-- Soccer Ball -->
+      <g opacity="0.05" transform="translate(50, 150)">
+        <circle cx="0" cy="0" r="20" fill="#ffffff"/>
+        <path d="M0 -20 L7 -7 L20 -7 L12 3 L15 17 L0 10 L-15 17 L-12 3 L-20 -7 L-7 -7 Z" 
+              fill="none" stroke="#1E2128" stroke-width="2"/>
+      </g>
+      
+      <!-- Additional Soccer Ball -->
+      <g opacity="0.05" transform="translate(150, 150)">
+        <circle cx="0" cy="0" r="15" fill="#ffffff"/>
+        <path d="M0 -15 L5 -5 L15 -5 L8 2 L12 13 L0 8 L-12 13 L-8 2 L-15 -5 L-5 -5 Z" 
+              fill="none" stroke="#1E2128" stroke-width="2"/>
+      </g>
+    </pattern>
+  </defs>
+  
+  <!-- Apply Pattern -->
+  <rect width="100%" height="100%" fill="url(#sportsPattern)"/>
+</svg>

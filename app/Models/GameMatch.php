@@ -4,12 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\venue_description;
 
 class GameMatch extends Model
 {
         use HasFactory;
         
         protected $table = 'matches';
+        
+        protected $fillable = [
+           'venue_description_id',
+           'description',
+           'game_duration',
+           'status',
+           'match_date_time',
+           'category_id'
+        ];
 
         public function category()
     {
@@ -25,6 +35,7 @@ class GameMatch extends Model
 
     public function venueDescription()
     {
-        return $this->belongsTo(VenueDescription::class);
+        return $this->belongsTo(venue_description::class);
     }
+
 }

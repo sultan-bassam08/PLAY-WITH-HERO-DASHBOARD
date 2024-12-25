@@ -1,0 +1,173 @@
+$theme-color: #52AD9C
+$font-color: darken($theme-color, 30%)
+
+
+$break-small: 320px
+$break-md: 800px
+$break-large: 1200px
+
+$jumbotron-size: 550px
+$anchor-size: 50 * $jumbotron-size/100
+
+=flex($direction, $position)
+    display: flex
+    flex-flow: $direction
+    justify-content: $position
+
+=min-size($width, $height)
+    min-width: $width
+    min-height: $height
+
+=size($width, $height)
+    min-width: $width
+    min-height: $height
+    width: $width
+    height: $height
+    max-width: $width
+    max-height: $height
+.center-text
+    text-align: center
+.center-content-v
+    +flex(column wrap, center)
+.center-content-h
+    +flex(row wrap, center)
+
+.row
+    +flex(row wrap, flex-start)
+
+html,body
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    +flex(column wrap, flex-start)
+
+.header
+    +flex(row wrap, space-around)
+    +min-size(100%, .1em)
+    background: $theme-color
+    color: #FFF
+    font-family: "Raleway", sans-serif
+    z-index: 500000
+    @media screen and (max-width: $break-md)
+        +flex(column wrap, center)
+    a, a:hover, a:visited, a:active
+        text-decoration: none
+        color: inherit
+    .brand
+        +min-size(10px, 1em)
+        text-transform: capitalize
+        margin: .5em
+        font-size: 20px
+        font-weight: bold
+        @media screen and (max-width: $break-md)
+            margin-top: 2em
+            margin-bottom: 2em
+            +flex(row wrap, space-around)
+            text-align: center
+    .nav
+        +flex(row wrap, flex-end)
+        +min-size(600px, 1em)
+        text-transform: capitalize
+        margin: .5em
+        @media screen and (max-width: $break-md)
+            +flex(column wrap, flex-start)
+            +min-size(100%, 15px)
+            margin: 0
+            margin-bottom: .5em
+        a
+            +flex(column wrap, center)
+            +min-size(12px, 15px)
+            padding: .5em 1em .5em 1em
+            margin-left: 1em
+            transition: all .5s
+            border-radius: 20px
+            @media screen and (max-width: $break-md)
+                border-radius: 0
+                text-align: center
+                margin-left: 0
+        a:hover
+            background: darken($theme-color, 10%)
+
+.user-module
+    font-size: 16px
+    font-family: "Oxygen", sans-serif
+    .jumbotron
+        z-index: 1000
+        perspective: 1000px
+        +flex(column wrap, flex-start)
+        +min-size(100%, $jumbotron-size)
+        background: darken($theme-color, 40%)
+        background: url('../img/woods_1024.jpg') no-repeat
+        background-size: cover
+        background-position: center
+        transition: all 3s
+        overflow: hidden
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 85%,  0% 100%)
+    .jumbotron:hover
+        background-position: top
+    .userprofile
+        +min-size(250px, 250px)
+        +flex(column wrap, center)
+        background: #FFF
+        position: absolute
+        top: 55%
+        border-radius: 100%
+        text-align: center
+        left: 50%
+        transform: translate(-50%, 0%)
+        border: 5px solid #FFF
+        background: url('../img/women76.jpg') no-repeat
+        background-size: cover
+        background-position: center
+        @media screen and (max-width: $break-md)
+            top: 85%
+    .userdesc
+        +flex(column wrap, flex-start)
+        margin-top: 5em
+        +min-size(0, 400px)
+        width: 50%
+        text-align: center
+        .social
+            +flex(row wrap, center)
+            font-size: 20px
+            i
+                margin: .5em
+    #gallery
+        min-height: 1000px
+        .gallery-img
+            +min-size(600px, 400px)
+            +flex(column wrap, flex-end)
+            margin: .5em
+            border-radius: 7px
+            background: transparentize(desaturate($theme-color, 30%), .8)
+            background-size: 100%
+            background-position: center
+            transition: filter .5s
+            overflow: hidden
+            @media screen and (max-width: $break-md)
+                +min-size(100%, auto)
+                border-radius: 0%
+                margin: 0
+                margin-top: .1em
+                margin-bottom: .1em
+            .caption
+                +flex(column wrap, center)
+                color: #FFF
+                text-align: center
+                width: 100%
+                height: 400px
+                opacity: 0
+                transition: all 1s
+                text-shadow: 0px 0px 50px rgb(0,0,0)
+                font-size: 30px
+                @media screen and (max-width: $break-md)
+                    +min-size(100%, 10px)
+
+        .gallery-img:hover
+            filter: contrast(200%)
+        .gallery-img:hover .caption
+            opacity: 1
+            background: linear-gradient(45deg,#3891A6, transparent , #FDE74C )
+            @media screen and (max-width: $break-md)
+                opacity: 1
+                background: rgba(0,0,0,0.5)

@@ -73,12 +73,13 @@
 
 
  --}}
-
+ @if(auth()->check())
  <div id="layoutSidenav">
     <div id="layoutSidenav_nav">
         <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
             <div class="sb-sidenav-menu">
                 <div class="nav">
+                    
                     <!-- Sidebar Header -->
                     <div class="sb-sidenav-menu-heading">ALL</div>
 
@@ -109,6 +110,14 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-futbol"></i></div>
                         Categories
                     </a>
+                    
+                   
+                    <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                        @csrf
+                        <button type="submit" class="btn btn-secondary mx-3 my-2">Logout</button>
+                    </form>
+                   
+                   
 
                    
                 </div>
@@ -120,6 +129,8 @@
                 {{ auth()->user()->name ?? 'Guest' }}
             </div>
         </nav>
-    </div>
-</div>
+   
 
+ @endif
+ </div>
+</div>

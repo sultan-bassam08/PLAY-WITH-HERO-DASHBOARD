@@ -8,9 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class VenueInfo extends Model
 {
     use HasFactory;
+    protected $table = 'venue_info';
 
-    public function descriptions()
+
+public function descriptions()
 {
-    return $this->hasMany(VenueDescription::class);
+    return $this->hasMany(venue_description::class);
 }
 }
