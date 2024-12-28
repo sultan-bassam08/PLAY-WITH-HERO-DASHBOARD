@@ -9,7 +9,7 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->enum('name', ['football', 'basketball', 'tennis']);
+            $table->string('name'); // Creates a 'name' column of type VARCHAR in the database
         });
     }
 

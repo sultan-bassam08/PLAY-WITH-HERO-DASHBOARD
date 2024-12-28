@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\GameMatch;
 use App\Models\venue_description;
+use App\Models\VenueDescription;
 use App\Models\VenueInfo;
 
 // use App\Models\venue_description;
@@ -42,7 +43,7 @@ return view('admin.matches.index', compact('matches', 'venues'));
     ]);
 
     // Fetch venue_description details
-    $venue_description = venue_description::where('venue_info_id', '=', $request->input('venue_id'))
+    $venue_description = VenueDescription::where('venue_info_id', '=', $request->input('venue_id'))
         ->first(['id', 'category_id']);
 
     // Ensure the venue_description is found

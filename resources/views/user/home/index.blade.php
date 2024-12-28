@@ -78,31 +78,41 @@
         -->
         <section class="contact" id="contact">
           <div class="container">
-        
-            <div class="contact-content">
-              <p class="contact-subtitle">Get in touch with us</p>
-        
-              <h2 class="h3 contact-title">Contact Us!</h2>
-        
-              <p class="contact-text">
-                Have questions or want to book a match? Fill out the form or reach us through the contact details below.
-              </p>
-            </div>
-        
-            
-        
-            <div class="contact-form">
-              <h2 class="h3 contact-form-title">Send Us a Message</h2>
-              <form action="#" method="post">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" required></textarea>
-                <button type="submit" class="btn btn-primary">Send Message</button>
-              </form>
-            </div>
-        
+      
+              <div class="contact-content">
+                  <p class="contact-subtitle">Get in touch with us</p>
+                  <h2 class="h3 contact-title">Contact Us!</h2>
+                  <p class="contact-text">
+                      Have questions or want to book a match? Fill out the form or reach us through the contact details below.
+                  </p>
+              </div>
+      
+              <div class="contact-form">
+                  <h2 class="h3 contact-form-title">Send Us a Message</h2>
+                  <form action="{{ route('user.home.index') }}" method="POST">
+                      @csrf
+                      <input type="text" name="name" placeholder="Your Name" value="{{ old('name') }}" required>
+                      <input type="email" name="email" placeholder="Your Email" value="{{ old('email') }}" required>
+                      <textarea name="message" placeholder="Your Message" required>{{ old('message') }}</textarea>
+                      <button type="submit" class="btn btn-primary">Send Message</button>
+                  </form>
+      
+                  @if(session('success'))
+                      <p class="text-success">{{ session('success') }}</p>
+                  @endif
+      
+                  @if($errors->any())
+                      <ul>
+                          @foreach($errors->all() as $error)
+                              <li class="text-danger">{{ $error }}</li>
+                          @endforeach
+                      </ul>
+                  @endif
+              </div>
+      
           </div>
-        </section>
+      </section>
+      
         
 
         <!-- 

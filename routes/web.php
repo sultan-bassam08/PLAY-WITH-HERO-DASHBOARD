@@ -11,14 +11,19 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\UserCategoryController;
-use App\Http\Controllers\UserVenueController;
-use App\Http\Controllers\UserReservationController;
+use App\Http\Controllers\UserMatchController;
+use App\Http\Controllers\ContactController;
 
-Route::get('/categories', [UserCategoryController::class, 'index'])->name('categories.index');
-Route::get('/categories/{id}', [UserCategoryController::class, 'show'])->name('categories.show');
-Route::get('/venues/{id}', [UserVenueController::class, 'show'])->name('venues.show');
-Route::post('/reservations', [UserReservationController::class, 'store'])->name('reservations.store');
-Route::get('/reservations', [UserReservationController::class, 'index'])->name('reservations.index');
+// Display the contact form (located in 'home/index.blade.php')
+Route::get('user/home/index', [ContactController::class, 'create'])->name('user.home.index');
+
+// Handle the form submission
+Route::post('user/home/index', [ContactController::class, 'store'])->name('user.home.index');
+
+
+// Route for listing all categories
+Route::get('/categories', [UserCategoryController::class, 'index'])->name('user.categories.index');
+Route::get('/categories/{id}', [UserMatchController::class, 'index'])->name('categories.index');
 
 
 Route::prefix('user')->middleware('auth')->group(function () {

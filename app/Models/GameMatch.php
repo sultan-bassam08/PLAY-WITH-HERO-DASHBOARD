@@ -4,29 +4,26 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\venue_description;
 
 class GameMatch extends Model
 {
-        use HasFactory;
-        
-        protected $table = 'matches';
-        
-        protected $fillable = [
-           'venue_description_id',
-           'description',
-           'game_duration',
-           'status',
-           'match_date_time',
-           'category_id'
-        ];
+    use HasFactory;
 
-        public function category()
+    protected $table = 'matches';
+
+    protected $fillable = [
+        'venue_description_id',
+        'description',
+        'game_duration',
+        'status',
+        'match_date_time',
+        'category_id'
+    ];
+
+    public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'category_id');
     }
-    
-    
 
     public function reservations()
     {
@@ -35,7 +32,6 @@ class GameMatch extends Model
 
     public function venueDescription()
     {
-        return $this->belongsTo(venue_description::class);
+        return $this->belongsTo(VenueDescription::class);
     }
-
 }

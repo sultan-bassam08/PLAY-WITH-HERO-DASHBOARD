@@ -14,6 +14,7 @@ class CreateVenueInfoTable extends Migration
             $table->string('email')->nullable();
             $table->string('mobile', 15)->nullable();
             $table->string('address')->nullable();
+            $table->timestamps();
         });
     }
 

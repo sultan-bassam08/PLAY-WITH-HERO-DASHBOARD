@@ -38,8 +38,13 @@
                 <li>
                     <a href="#about" class="navbar-link">About</a>
                 </li>
-                <li>
-                    <a href="#Category" class="navbar-link">Category</a>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" id="navbarCategory" role="button" data-bs-toggle="dropdown" aria-expanded="false">Category</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarCategory">
+                        @foreach (\App\Models\Category::all() as $category)
+                            <li><a class="dropdown-item" href="{{ route('user.categories.index', $category->name) }}">{{ ucfirst($category->name) }}</a></li>
+                        @endforeach
+                    </ul>
                 </li>
                 <li>
                     <a href="#contact" class="navbar-link">Contact</a>
@@ -62,6 +67,7 @@
                 </li>
                
             </ul>
+            
         </nav>
 
         <!-- Actions (Sign-in & Sign-up) -->
