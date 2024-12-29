@@ -13,6 +13,16 @@ use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\UserCategoryController;
 use App\Http\Controllers\UserMatchController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\VenueInfoController;
+use App\Http\Controllers\VenueDescriptionController;
+
+// Venue Info
+Route::get('/venues', [VenueInfoController::class, 'index'])->name('venues.index');
+Route::get('/venues/{id}', [VenueInfoController::class, 'show'])->name('venues.show');
+
+// Venue Description
+Route::get('/venue-descriptions', [VenueDescriptionController::class, 'index'])->name('venue_descriptions.index');
+Route::get('/venue-descriptions/{id}', [VenueDescriptionController::class, 'show'])->name('venue_descriptions.show');
 
 // Display the contact form (located in 'home/index.blade.php')
 Route::get('user/home/index', [ContactController::class, 'create'])->name('user.home.index');
@@ -21,9 +31,11 @@ Route::get('user/home/index', [ContactController::class, 'create'])->name('user.
 Route::post('user/home/index', [ContactController::class, 'store'])->name('user.home.index');
 
 
-// Route for listing all categories
+// List all categories (not specific to one category)
 Route::get('/categories', [UserCategoryController::class, 'index'])->name('user.categories.index');
-Route::get('/categories/{id}', [UserMatchController::class, 'index'])->name('categories.index');
+
+// Display specific category details
+Route::get('/categories/{id}', [UserCategoryController::class, 'show'])->name('categories.show');
 
 
 Route::prefix('user')->middleware('auth')->group(function () {

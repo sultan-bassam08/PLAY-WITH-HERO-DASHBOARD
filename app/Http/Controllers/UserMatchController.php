@@ -11,9 +11,10 @@ class UserMatchController extends Controller
     {
         // Fetch the category
         $category = Category::with('matches')->findOrFail($categoryId);
-         
+        
         // Fetch matches for the category
         $matches = GameMatch::where('category_id', $categoryId)->get();
+        dd($matches); 
         
 
         return view('user.categories.index', compact('category', 'matches'));

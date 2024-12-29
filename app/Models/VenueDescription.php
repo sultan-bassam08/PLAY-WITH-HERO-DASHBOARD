@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -9,14 +8,7 @@ class VenueDescription extends Model
 {
     use HasFactory;
 
-    protected $table = 'venue_description';
-
-    protected $fillable = [
-        'playground_description',
-        'max_spot',
-        'category_id',
-        'venue_info_id'
-    ];
+    protected $fillable = ['venue_info_id', 'description', 'max_capacity', 'category_id'];
 
     public function venueInfo()
     {

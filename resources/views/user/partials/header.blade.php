@@ -1,5 +1,20 @@
 <!-- resources/views/user/theme/partials/header.blade.php -->
 
+    <style>
+        .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown-menu.show {
+    display: block;
+}
+    </style>
+
 <header class="header">
 
     <!-- Overlay -->
@@ -39,10 +54,16 @@
                     <a href="#about" class="navbar-link">About</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" id="navbarCategory" role="button" data-bs-toggle="dropdown" aria-expanded="false">Category</a>
+                    <a href="#" class="nav-link dropdown-toggle" id="navbarCategory" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Category
+                    </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarCategory">
                         @foreach (\App\Models\Category::all() as $category)
-                            <li><a class="dropdown-item" href="{{ route('user.categories.index', $category->name) }}">{{ ucfirst($category->name) }}</a></li>
+                            <li>
+                                <a class="dropdown-item" href="{{ route('categories.show', $category->id) }}">
+                                    {{ ucfirst($category->name) }}
+                                </a>
+                            </li>
                         @endforeach
                     </ul>
                 </li>

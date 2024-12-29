@@ -62,60 +62,72 @@
         *************************************-->
         <main id="tg-main" class="tg-main tg-haslayout">
             <!--************************************
-                    Fixtures Start
+                        Fixtures Start
             *************************************-->
-            
             <section class="tg-main-section tg-haslayout">
                 <div class="col-md-7 col-sm-12 col-xs-12">
                     <div id="tg-upcomingmatch-slider" class="tg-upcomingmatch-slider tg-upcomingmatch">
                         <div class="swiper-wrapper">
-                            {{-- @forelse ($matches as $match) --}}
+                            @isset($matches)
+                            @forelse ($matches as $match)
                                 <div class="swiper-slide">
                                     <div class="tg-match">
                                         <div class="tg-matchdetail">
+                                            <!-- Venue Logo -->
                                             <div class="tg-box">
                                                 <strong class="tg-venuelogo">
-                                                    {{-- <img src="{{ $match->venueDescription->venueInfo->logo ?? 'default_logo.png' }}" alt="Venue Logo"> --}}
+                                                    <img src="{{ $match->venueDescription->venueInfo->logo ?? asset('assets/images/default_logo.png') }}" 
+                                                         alt="Venue Logo">
                                                 </strong>
-                                                {{-- <h3>{{ $match->venueDescription->venueInfo->name }}</h3> --}}
+                                                <h3>{{ $match->venueDescription->venueInfo->name }}</h3>
                                             </div>
+                                            <!-- Venue Description -->
                                             <div class="tg-box">
-                                                {{-- <p><strong>Description:</strong> {{ $match->venueDescription->playground_description }}</p> --}}
+                                                <p><strong>Description:</strong> {{ $match->venueDescription->playground_description }}</p>
                                             </div>
+                                            <!-- Venue Capacity -->
                                             <div class="tg-box">
-                                                {{-- <p><strong>Capacity:</strong> {{ $match->venueDescription->max_spot }} people</p> --}}
+                                                <p><strong>Capacity:</strong> {{ $match->venueDescription->max_spot }} people</p>
                                             </div>
                                         </div>
+                                        <!-- Match Hover Details -->
                                         <div class="tg-matchhover">
-                                            {{-- <address>{{ $match->match_date_time }} at {{ $match->venueDescription->venueInfo->address }}</address> --}}
+                                            <address>{{ $match->match_date_time }} at {{ $match->venueDescription->venueInfo->address }}</address>
                                             <div class="tg-btnbox">
-                                                {{-- <a class="tg-btn" href="{{ route('venues.view', $match->venueDescription->id) }}"><span>View Venue</span></a>
-                                                <a class="tg-btn" href="{{ route('matches.join', $match->id) }}"><span>Join Match</span></a> --}}
+                                                <a class="tg-btn" href="{{ route('venues.view', $match->venueDescription->venue_info_id) }}">
+                                                    <span>View Venue</span>
+                                                </a>
+                                                <a class="tg-btn" href="{{ route('matches.join', $match->id) }}">
+                                                    <span>Join Match</span>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            {{-- @empty --}}
+                            @empty
+                                <!-- No Matches Available -->
                                 <div class="swiper-slide">
                                     <p>No matches available for this category.</p>
                                 </div>
-                            {{-- @endforelse --}}
+                            @endforelse
+                            @endisset
                         </div>
+                        <!-- Slider Navigation -->
                         <div class="tg-themebtnnext"><span class="fa fa-angle-down"></span></div>
                         <div class="tg-themebtnprev"><span class="fa fa-angle-up"></span></div>
                     </div>
                 </div>
             </section>
-            
             <!--************************************
-                    Fixtures End
+                        Fixtures End
             *************************************-->
+        
             <!--************************************
-                    Video Start
+                        Video Section Start
             *************************************-->
             <section class="tg-videobox tg-haslayout">
                 <figure>
-                    <img src="{{ asset('assets/images/bg-video.jpg') }}" alt="image description">
+                    <img src="{{ asset('assets/images/bg-video.jpg') }}" alt="Video Background">
                     <figcaption>
                         <a class="tg-playbtn" href="https://youtu.be/a0ksVaLlaIw?iframe=true" data-rel="prettyPhoto[iframe]"></a>
                         <h2>{{ $category->description ?? 'Category description will appear here.' }}</h2>
@@ -123,9 +135,10 @@
                 </figure>
             </section>
             <!--************************************
-                    Video End
+                        Video Section End
             *************************************-->
         </main>
+        
         <!--************************************
                 Main End
         *************************************-->
