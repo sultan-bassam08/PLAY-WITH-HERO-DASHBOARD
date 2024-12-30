@@ -8,7 +8,9 @@ class VenueInfo extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'address', 'contact_number', 'email'];
+    protected $table = 'venue_info';
+
+    protected $fillable = ['name', 'address', 'contact_number', 'email' , 'img_venue'];
 
     public function venueDescriptions()
     {

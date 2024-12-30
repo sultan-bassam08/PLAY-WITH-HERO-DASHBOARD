@@ -18,7 +18,8 @@ use App\Http\Controllers\VenueDescriptionController;
 
 // Venue Info
 Route::get('/venues', [VenueInfoController::class, 'index'])->name('venues.index');
-Route::get('/venues/{id}', [VenueInfoController::class, 'show'])->name('venues.show');
+// Route::get('/venues/{id}', [VenueInfoController::class, 'show'])->name('venues.show');
+Route::get('/venues/{id}', [App\Http\Controllers\VenueInfoController::class, 'show'])->name('venues.view');
 
 // Venue Description
 Route::get('/venue-descriptions', [VenueDescriptionController::class, 'index'])->name('venue_descriptions.index');

@@ -61,83 +61,63 @@
                 Main Start
         *************************************-->
         <main id="tg-main" class="tg-main tg-haslayout">
-            <!--************************************
-                        Fixtures Start
-            *************************************-->
             <section class="tg-main-section tg-haslayout">
-                <div class="col-md-7 col-sm-12 col-xs-12">
-                    <div id="tg-upcomingmatch-slider" class="tg-upcomingmatch-slider tg-upcomingmatch">
-                        <div class="swiper-wrapper">
-                            @isset($matches)
-                            @forelse ($matches as $match)
+                <div class="container">
+                    <div class="col-md-7 col-sm-12 col-xs-12">
+                        <div id="tg-upcomingmatch-slider" class="tg-upcomingmatch-slider tg-upcomingmatch">
+                            <div class="swiper-wrapper">
+                                @foreach($category->venues as $venue)
                                 <div class="swiper-slide">
                                     <div class="tg-match">
                                         <div class="tg-matchdetail">
-                                            <!-- Venue Logo -->
                                             <div class="tg-box">
-                                                <strong class="tg-venuelogo">
-                                                    <img src="{{ $match->venueDescription->venueInfo->logo ?? asset('assets/images/default_logo.png') }}" 
-                                                         alt="Venue Logo">
+                                                <strong class="tg-teamlogo">
+                                                    <img src="{{ $venue->venueInfo->img_venue ? asset('storage/' . $venue->venueInfo->img_venue) : asset('assets/images/default_logo.png') }}" 
+                                                         alt="{{ $venue->venueInfo->name }}">
                                                 </strong>
-                                                <h3>{{ $match->venueDescription->venueInfo->name }}</h3>
+                                                <h3>{{ $venue->venueInfo->name }}</h3>
                                             </div>
-                                            <!-- Venue Description -->
                                             <div class="tg-box">
-                                                <p><strong>Description:</strong> {{ $match->venueDescription->playground_description }}</p>
+                                                <h3>Capacity</h3>
+                                                <span>{{ $venue->max_spot }} players</span>
                                             </div>
-                                            <!-- Venue Capacity -->
                                             <div class="tg-box">
-                                                <p><strong>Capacity:</strong> {{ $match->venueDescription->max_spot }} people</p>
+                                                @if(isset($venue->matches) && $venue->matches->isNotEmpty())
+                                                <h3>Duration</h3>
+                                                <span>{{ $venue->matches->first()->game_duration }} min</span>
+                                                @endif
                                             </div>
                                         </div>
-                                        <!-- Match Hover Details -->
                                         <div class="tg-matchhover">
-                                            <address>{{ $match->match_date_time }} at {{ $match->venueDescription->venueInfo->address }}</address>
+                                            <address>{{ $venue->venueInfo->address }}</address>
                                             <div class="tg-btnbox">
-                                                <a class="tg-btn" href="{{ route('venues.view', $match->venueDescription->venue_info_id) }}">
-                                                    <span>View Venue</span>
-                                                </a>
-                                                <a class="tg-btn" href="{{ route('matches.join', $match->id) }}">
-                                                    <span>Join Match</span>
+                                                <a class="tg-btn" href="{{ route('venues.view', $venue->venue_info_id) }}">
+                                                    <span>View Details</span>
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            @empty
-                                <!-- No Matches Available -->
-                                <div class="swiper-slide">
-                                    <p>No matches available for this category.</p>
-                                </div>
-                            @endforelse
-                            @endisset
+                                @endforeach
+                            </div>
+                            
+                            <!-- Navigation Buttons -->
+                            <div class="tg-themebtnnext"><span class="fa fa-angle-down"></span></div>
+                            <div class="tg-themebtnprev"><span class="fa fa-angle-up"></span></div>
                         </div>
-                        <!-- Slider Navigation -->
-                        <div class="tg-themebtnnext"><span class="fa fa-angle-down"></span></div>
-                        <div class="tg-themebtnprev"><span class="fa fa-angle-up"></span></div>
                     </div>
+                    
+                    @if($category->venues->isEmpty())
+                    <div class="col-xs-12">
+                        <div class="tg-no-venues">
+                            <p>No venues available for this category.</p>
+                        </div>
+                    </div>
+                    @endif
                 </div>
             </section>
-            <!--************************************
-                        Fixtures End
-            *************************************-->
-        
-            <!--************************************
-                        Video Section Start
-            *************************************-->
-            <section class="tg-videobox tg-haslayout">
-                <figure>
-                    <img src="{{ asset('assets/images/bg-video.jpg') }}" alt="Video Background">
-                    <figcaption>
-                        <a class="tg-playbtn" href="https://youtu.be/a0ksVaLlaIw?iframe=true" data-rel="prettyPhoto[iframe]"></a>
-                        <h2>{{ $category->description ?? 'Category description will appear here.' }}</h2>
-                    </figcaption>
-                </figure>
-            </section>
-            <!--************************************
-                        Video Section End
-            *************************************-->
         </main>
+        
         
         <!--************************************
                 Main End

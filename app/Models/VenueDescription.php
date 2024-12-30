@@ -8,6 +8,8 @@ class VenueDescription extends Model
 {
     use HasFactory;
 
+    protected $table = 'venue_description';
+
     protected $fillable = ['venue_info_id', 'description', 'max_capacity', 'category_id'];
 
     public function venueInfo()
@@ -18,5 +20,10 @@ class VenueDescription extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function matches()
+    {
+        return $this->hasMany(GameMatch::class, 'venue_description_id');
     }
 }

@@ -15,9 +15,9 @@ class UserCategoryController extends Controller
     }
 
     public function show($id)
-    {
-        // Find the specific category by ID and load related data if applicable
-        $category = Category::findOrFail($id);
-        return view('user.categories.index', compact('category'));
-    }
+{
+    $category = Category::with(['venues.venueInfo', 'venues.matches'])
+                       ->findOrFail($id);
+    return view('user.categories.index', compact('category'));
+}
 }

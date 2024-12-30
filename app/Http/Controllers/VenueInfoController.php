@@ -14,7 +14,8 @@ class VenueInfoController extends Controller
 
     public function show($id)
     {
-        $venue = VenueInfo::findOrFail($id);
+        $venue = VenueInfo::with(['venueDescriptions.category', 'venueDescriptions.matches'])
+                          ->findOrFail($id);
         return view('venues.show', compact('venue'));
     }
 }
