@@ -3,24 +3,25 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserMatchController;
+use App\Http\Controllers\UserVenueController;
+use App\Http\Controllers\VenueInfoController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ReservationController;
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\UserCategoryController;
-use App\Http\Controllers\UserMatchController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\VenueInfoController;
 use App\Http\Controllers\VenueDescriptionController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 // Venue Info
 Route::get('/venues', [VenueInfoController::class, 'index'])->name('venues.index');
 // Route::get('/venues/{id}', [VenueInfoController::class, 'show'])->name('venues.show');
-Route::get('/venues/{id}', [App\Http\Controllers\VenueInfoController::class, 'show'])->name('venues.view');
-
+// Route::get('/venues/{id}', [App\Http\Controllers\VenueInfoController::class, 'show'])->name('venues.view');
+Route::get('/venues/view/{id}', [UserVenueController::class, 'show'])->name('venues.view');
 // Venue Description
 Route::get('/venue-descriptions', [VenueDescriptionController::class, 'index'])->name('venue_descriptions.index');
 Route::get('/venue-descriptions/{id}', [VenueDescriptionController::class, 'show'])->name('venue_descriptions.show');
@@ -62,10 +63,6 @@ Route::get('/', function () {
 // Home Page
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-// Categories
-Route::get('/categories/basketball', [CategoryController::class, 'basketball'])->name('categories.basketball');
-Route::get('/categories/football', [CategoryController::class, 'football'])->name('categories.football');
-Route::get('/categories/tennis', [CategoryController::class, 'tennis'])->name('categories.tennis');
 
 // Reservations
 Route::get('/reservations', [ReservationController::class, 'index'])->name('reservations.index');

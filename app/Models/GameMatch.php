@@ -20,6 +20,15 @@ class GameMatch extends Model
         'category_id'
     ];
 
+    protected $dates = [
+        'match_date_time'
+    ];
+
+    // Or alternatively, use $casts
+    protected $casts = [
+        'match_date_time' => 'datetime'
+    ];
+
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
