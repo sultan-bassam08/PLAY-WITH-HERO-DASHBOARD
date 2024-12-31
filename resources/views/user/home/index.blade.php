@@ -120,68 +120,26 @@
         -->
 
         
-         <section class="about-categories">
+        <section class="about-categories">
           <div class="container">
-            <h2 class="section-title">Explore Categories</h2>
-            <ul class="categories-list has-scrollbar">
-              <li>
-                <a href="football.html" class="category-item">
-                  <figure>
-                    <img src="./assets/images/Football category.webp" alt="Football" class="category-img">
-                    <figcaption class="category-name">Football</figcaption>
-                  </figure>
-                </a>
-              </li>
-              <li>
-                <a href="tennis.html" class="category-item">
-                  <figure>
-                    <img src="./assets/images/Tennis category.webp" alt="Tennis" class="category-img">
-                    <figcaption class="category-name">Tennis</figcaption>
-                  </figure>
-                </a>
-              </li>
-              <li>
-                <a href="basketball.html" class="category-item">
-                  <figure>
-                    <img src="./assets/images/Basketball category.webp" alt="Basketball" class="category-img">
-                    <figcaption class="category-name">Basketball</figcaption>
-                  </figure>
-                </a>
-              </li>
-            </ul>
+              <h2 class="section-title">Explore Categories</h2>
+              <ul class="categories-list has-scrollbar">
+                @foreach (\App\Models\Category::all() as $category)
+                      <li>
+                          <a href="{{ route('categories.show', $category->id) }}" class="category-item">
+                              <figure>
+                                  <img src="{{ asset($category->image_path) }}" alt="{{ $category->name }}" class="category-img">
+                                  <figcaption class="category-name">{{ ucfirst($category->name) }}</figcaption>
+                              </figure>
+                          </a>
+                      </li>
+                  @endforeach
+              </ul>
           </div>
-        </section> 
+      </section>
 
 
-        <!-- <section class="gallery">
-          <div class="container">
-
-            <ul class="gallery-list has-scrollbar">
-
-              <li>
-                <figure class="gallery-item">
-                  <img src="./assets/images/Basketball category.webp" alt="Gallery image">
-                </figure>
-              </li>
-
-              <li>
-                <figure class="gallery-item">
-                  <img src="./assets/images/Tennis category.webp" alt="Gallery image">
-                </figure>
-              </li>
-
-              <li>
-                <figure class="gallery-item">
-                  <img src="./assets/images/Football category.webp" alt="Gallery image">
-                </figure>
-              </li>
-
-              
-
-            </ul>
-
-          </div>
-        </section> -->
+        
 
 
         <!-- 
@@ -237,139 +195,7 @@
         
           </div>
         </section>
-        
-<!-- 
-        <section class="team" id="team">
-          <div class="container">
-
-            <h2 class="h2 section-title">Active Team Members</h2>
-
-            <ul class="team-list">
-
-              <li>
-                <a href="#" class="team-member">
-                  <figure>
-                    <img src="./assets/images/team-member-1.png" alt="Team member image">
-                  </figure>
-
-                  <ion-icon name="link-outline"></ion-icon>
-                </a>
-              </li>
-
-              <li>
-                <a href="#" class="team-member">
-                  <figure>
-                    <img src="./assets/images/team-member-2.png" alt="Team member image">
-                  </figure>
-
-                  <ion-icon name="link-outline"></ion-icon>
-                </a>
-              </li>
-
-              <li>
-                <a href="#" class="team-member">
-                  <figure>
-                    <img src="./assets/images/team-member-3.png" alt="Team member image">
-                  </figure>
-
-                  <ion-icon name="link-outline"></ion-icon>
-                </a>
-              </li>
-
-              <li>
-                <a href="#" class="team-member">
-                  <figure>
-                    <img src="./assets/images/team-member-4.png" alt="Team member image">
-                  </figure>
-
-                  <ion-icon name="link-outline"></ion-icon>
-                </a>
-              </li>
-
-              <li>
-                <a href="#" class="team-member">
-                  <figure>
-                    <img src="./assets/images/team-member-6.png" alt="Team member image">
-                  </figure>
-
-                  <ion-icon name="link-outline"></ion-icon>
-                </a>
-              </li>
-
-              <li>
-                <a href="#" class="team-member">
-                  <figure>
-                    <img src="./assets/images/team-member-7.png" alt="Team member image">
-                  </figure>
-
-                  <ion-icon name="link-outline"></ion-icon>
-                </a>
-              </li>
-
-              <li>
-                <a href="#" class="team-member">
-                  <figure>
-                    <img src="./assets/images/team-member-8.png" alt="Team member image">
-                  </figure>
-
-                  <ion-icon name="link-outline"></ion-icon>
-                </a>
-              </li>
-
-              <li>
-                <a href="#" class="team-member">
-                  <figure>
-                    <img src="./assets/images/team-member-9.png" alt="Team member image">
-                  </figure>
-
-                  <ion-icon name="link-outline"></ion-icon>
-                </a>
-              </li>
-
-              <li>
-                <a href="#" class="team-member">
-                  <figure>
-                    <img src="./assets/images/team-member-10.png" alt="Team member image">
-                  </figure>
-
-                  <ion-icon name="link-outline"></ion-icon>
-                </a>
-              </li>
-
-              <li>
-                <a href="#" class="team-member">
-                  <figure>
-                    <img src="./assets/images/team-member-11.png" alt="Team member image">
-                  </figure>
-
-                  <ion-icon name="link-outline"></ion-icon>
-                </a>
-              </li>
-
-              <li>
-                <a href="#" class="team-member">
-                  <figure>
-                    <img src="./assets/images/team-member-12.png" alt="Team member image">
-                  </figure>
-
-                  <ion-icon name="link-outline"></ion-icon>
-                </a>
-              </li>
-
-            </ul>
-
-            <button class="btn btn-primary">view all members</button>
-
-          </div>
-        </section>
-
-
-
- -->
-
-        <!-- 
-          - #GEARS
-        -->
+ 
 
         <!-- 
           - #NEWSLETTER

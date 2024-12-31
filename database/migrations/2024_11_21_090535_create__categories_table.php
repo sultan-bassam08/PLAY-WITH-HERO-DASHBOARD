@@ -10,6 +10,7 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name'); // Creates a 'name' column of type VARCHAR in the database
+            $table->string('image_path');
         });
     }
 

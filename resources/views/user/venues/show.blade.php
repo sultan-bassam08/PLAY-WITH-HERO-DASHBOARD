@@ -24,8 +24,7 @@
 	<link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
    
-	<!-- Scripts -->
-	<script src="{{ asset('assets/script/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
+	
     
         
       
@@ -174,15 +173,16 @@
 </main>
 
 
-
-<script src="{{ asset('assets/script/js/vendor/jquery-library.js') }}"></script>
-<script src="{{ asset('assets/script/js/vendor/bootstrap.min.js') }}"></script>
-<script src="{{ asset('assets/script/js/customScrollbar.min.js') }}"></script>
-<script src="{{ asset('assets/script/js/owl.carousel.js') }}"></script>
-<script src="{{ asset('assets/script/js/isotope.pkgd.js') }}"></script>
-<script src="{{ asset('assets/script/js/prettyPhoto.js') }}"></script>
-<script src="{{ asset('assets/script/js/swiper.min.js') }}"></script>
-<script src="{{ asset('assets/script/js/jquery-ui.js') }}"></script>
-<script src="{{ asset('assets/script/js/countTo.js') }}"></script>
-<script src="{{ asset('assets/script/js/appear.js') }}"></script>
-<script src="{{ asset('assets/script/js/main.js') }}"></script>
+        <script src="{{ asset('assets/script/vendor/jquery-library.js') }}"></script>
+        <script src="{{ asset('assets/script/vendor/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('assets/script/customScrollbar.min.js') }}"></script>
+        <script src="{{ asset('assets/script/owl.carousel.js') }}"></script>
+        <script src="{{ asset('assets/script/isotope.pkgd.js') }}"></script>
+        <script src="{{ asset('assets/script/prettyPhoto.js') }}"></script>
+        <script src="{{ asset('assets/script/swiper.min.js') }}"></script>
+        <script src="{{ asset('assets/script/jquery-ui.js') }}"></script>
+        <script src="{{ asset('assets/script/countTo.js') }}"></script>
+        <script src="{{ asset('assets/script/appear.js') }}"></script>
+        <script src="{{ asset('assets/script/main.js') }}"></script>
+        <script src="{{ asset('assets/script/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
+        

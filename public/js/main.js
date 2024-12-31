@@ -196,13 +196,27 @@ $(document).ready(function() {
 			ALL MATCHS SLIDER
 	------------------------------------------*/
 	var mainswiper = new Swiper('#tg-upcomingmatch-slider', {
-		direction: 'vertical',
-		slidesPerView: 3,
-		spaceBetween: 10,
-		mousewheelControl: true,
-		nextButton: '.tg-themebtnnext',
-		prevButton: '.tg-themebtnprev',
-		autoplay: 0,
+		direction: 'horizontal',  // Changed from vertical to horizontal
+		slidesPerView: 1,        // Show one slide at a time for better mobile responsiveness
+		spaceBetween: 30,
+		loop: true,              // Enable loop
+		mousewheel: true,        // Updated from mousewheelControl
+		navigation: {            // Updated navigation syntax
+			nextEl: '.tg-themebtnnext',
+			prevEl: '.tg-themebtnprev',
+		},
+		autoplay: {             // Updated autoplay syntax
+			delay: 5000,
+			disableOnInteraction: false,
+		},
+		breakpoints: {          // Responsive breakpoints
+			768: {
+				slidesPerView: 2,
+			},
+			1024: {
+				slidesPerView: 3,
+			}
+		}
 	});
 	/*------------------------------------------
 			SPONSER SLIDER
