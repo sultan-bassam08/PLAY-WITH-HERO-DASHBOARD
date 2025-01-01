@@ -14,14 +14,29 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\UserCategoryController;
+use App\Http\Controllers\UserReservationController;
 use App\Http\Controllers\VenueDescriptionController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/matches/{match}/book', [UserReservationController::class, 'create'])->name('reservations.create');
+    Route::post('/reservations', [UserReservationController::class, 'store'])->name('reservations.store');
+    Route::get('/my-reservations', [UserReservationController::class, 'index'])->name('user.reservations.index');
+    Route::put('/reservations/{reservation}/cancel', [UserReservationController::class, 'cancel'])->name('user.reservations.cancel');
+    Route::get('/check-reservation/{match}', [UserReservationController::class, 'checkReservation'])
+    ->name('check.reservation');
+    Route::get('/booking-confirmation/{reservation}', [UserReservationController::class, 'showConfirmation'])
+    ->name('booking.confirmation');
+    Route::get('/bookings', [UserReservationController::class, 'showBookings'])->name('user.bookings');
+});
 
 // Venue Info
 Route::get('/venues', [VenueInfoController::class, 'index'])->name('venues.index');
 // Route::get('/venues/{id}', [VenueInfoController::class, 'show'])->name('venues.show');
 // Route::get('/venues/{id}', [App\Http\Controllers\VenueInfoController::class, 'show'])->name('venues.view');
 Route::get('/venues/view/{id}', [UserVenueController::class, 'show'])->name('venues.view');
+
 // Venue Description
 Route::get('/venue-descriptions', [VenueDescriptionController::class, 'index'])->name('venue_descriptions.index');
 Route::get('/venue-descriptions/{id}', [VenueDescriptionController::class, 'show'])->name('venue_descriptions.show');
@@ -65,7 +80,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 
 // Reservations
-Route::get('/reservations', [ReservationController::class, 'index'])->name('reservations.index');
+// Route::get('/reservations', [ReservationController::class, 'index'])->name('reservations.index');
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 // ------------------------- AUTHENTICATION ----------------------------
@@ -84,6 +99,7 @@ Route::middleware('auth')->post('/logout', [AuthenticatedSessionController::clas
 // Admin Routes
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    
 });
 
 // ---------------------- AUTHENTICATED USERS --------------------------

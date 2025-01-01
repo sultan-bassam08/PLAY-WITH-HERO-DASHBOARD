@@ -1,6 +1,3 @@
-
-
-
 <header class="header">
 
     <!-- Overlay -->
@@ -11,6 +8,7 @@
         <a href="{{ route('home') }}" class="logo">
             <img src="{{ asset('assets/images/logo.svg') }}" alt="Play with hero logo">
         </a>
+
         <!-- Mobile Menu Button -->
         <button class="nav-open-btn" data-nav-open-btn>
             <ion-icon name="menu-outline"></ion-icon>
@@ -19,10 +17,9 @@
         <!-- Navigation -->
         <nav class="navbar" data-nav>
             <div class="navbar-top">
-
                 <!-- Logo for Mobile View -->
                 <a href="{{ route('home') }}" class="logo">
-                    <img src="{{ asset('assets/images/logo.svg') }}" alt="GameX logo">
+                    <img src="{{ asset('assets/images/logo.svg') }}" alt="Play with hero logo">
                 </a>
 
                 <!-- Close Button for Mobile Nav -->
@@ -33,13 +30,9 @@
 
             <!-- Navbar Links -->
             <ul class="navbar-list">
-                <li>
-                    <a href="#hero" class="navbar-link">Home</a>
-                </li>
-                <li>
-                    <a href="#about" class="navbar-link">About</a>
-                </li>
-                
+                <li><a href="#hero" class="navbar-link">Home</a></li>
+                <li><a href="#about" class="navbar-link">About</a></li>
+
                 <li class="nav-item dropdown">
                     <a href="#" class="navbar-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Category
@@ -54,11 +47,7 @@
                         @endforeach
                     </ul>
                 </li>
-                <li>
-                    <a href="#contact" class="navbar-link">Contact</a>
-                </li>
-                
-                
+                <li><a href="#contact" class="navbar-link">Contact</a></li>
             </ul>
 
             <!-- Social Media Links -->
@@ -73,12 +62,10 @@
                         <ion-icon name="logo-instagram"></ion-icon>
                     </a>
                 </li>
-               
             </ul>
-            
         </nav>
 
-        <!-- Actions (Sign-in & Sign-up) -->
+        <!-- Actions (Sign-in & Sign-up or Profile Dropdown) -->
         <div class="header-actions">
             @guest
                 <!-- When User is NOT Logged In -->
@@ -98,25 +85,35 @@
             @endguest
 
             @auth
-                <!-- When User IS Logged In -->
-                <a href="{{ route('user.profile.index') }}" class="btn-sign_in">
-                    <div class="icon-box">
-                        <ion-icon name="person-outline"></ion-icon>
-                    </div>
-                    <span>Profile</span>
-                </a>
-
-                <form action="{{ route('logout') }}" method="POST" style="display: inline;">
-                    @csrf
-                    <button type="submit" class="btn-sign_in">
-                        <div class="icon-box">
-                            <ion-icon name="log-out-outline"></ion-icon>
-                        </div>
-                        <span>Logout</span>
-                    </button>
-                </form>
-            @endauth
-        </div>
+    <!-- When User IS Logged In -->
+    <div class="nav-item dropdown">
+        <a href="#" class="btn-sign_in dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="icon-box">
+                <ion-icon name="person-outline"></ion-icon>
+            </div>
+            <span>{{ auth()->user()->name }}</span>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a class="dropdown-item" href="{{ route('user.profile.index') }}">Profile</a>
+            </li>
+            <li>
+                <a class="dropdown-item" href="{{ route('user.bookings') }}">Show My Booking</a>
+            </li>
+        </ul>
     </div>
 
+    <!-- Logout Button -->
+    <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+        @csrf
+        <button type="submit" class="btn-sign_in">
+            <div class="icon-box">
+                <ion-icon name="log-out-outline"></ion-icon>
+            </div>
+            <span>Logout</span>
+        </button>
+    </form>
+@endauth
+        </div>
+    </div>
 </header>

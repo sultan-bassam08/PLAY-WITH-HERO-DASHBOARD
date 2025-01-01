@@ -155,10 +155,15 @@
                                         <strong>Time:</strong> {{ $match->match_date_time->format('h:i A') }}
                                     </div>
                                     <div class="col-md-4">
-                                        <a href="#" class="tg-btn" style="background: #e5af26; padding: 8px 20px; border-radius: 5px; color: white; text-decoration: none; display: inline-block;">
+                                        @if(Auth::check())
+                                        <a href="{{ route('reservations.create', $match->id) }}" class="tg-btn">
                                             Join Match
                                         </a>
-                                    </div>
+                                    @else
+                                        <a href="{{ route('auth.login') }}" class="tg-btn">
+                                            Login to Join Match
+                                        </a>
+                                    @endif
                                 </div>
                             </div>
                             @endforeach
@@ -173,6 +178,17 @@
 </main>
 
 
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    @if(session('swal'))
+        Swal.fire({
+            icon: "{{ session('swal.type') }}",
+            title: "{{ session('swal.title') }}",
+            text: "{{ session('swal.text') }}",
+        });
+    @endif
+</script>
         <script src="{{ asset('assets/script/vendor/jquery-library.js') }}"></script>
         <script src="{{ asset('assets/script/vendor/bootstrap.min.js') }}"></script>
         <script src="{{ asset('assets/script/customScrollbar.min.js') }}"></script>

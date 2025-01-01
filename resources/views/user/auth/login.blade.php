@@ -1,6 +1,7 @@
 
 <link rel="stylesheet" href="{{asset('assets/css/loginauth.css')}}">
  <main class="main">
+    
         <div class="container">
             <div class="forms">
                 <div class="sign__blog">

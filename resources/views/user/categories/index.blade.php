@@ -104,10 +104,6 @@
                                                         >
                                                         <span>View Details</span>
                                                     </a>
-                                                    <a class="tg-btn" href="#"
-                                                    >
-                                                    <span>Join Match</span>
-                                                </a>
                                             </div>
                                         </div>
                                         </div>

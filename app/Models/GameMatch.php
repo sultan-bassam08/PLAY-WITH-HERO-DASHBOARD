@@ -28,15 +28,24 @@ class GameMatch extends Model
     protected $casts = [
         'match_date_time' => 'datetime'
     ];
+    public function isFull()
+    {
+        $currentSpots = $this->reservations()
+            ->where('reservation_status', '!=', 'declined')
+            ->count();
+            
+        return $currentSpots >= $this->venueDescription->max_spot;
+    }
 
     public function category()
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
 
+        // In GameMatch.php
     public function reservations()
     {
-        return $this->hasMany(Reservation::class);
+        return $this->hasMany(Reservation::class, 'match_id');
     }
 
     public function venueDescription()

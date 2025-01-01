@@ -148,53 +148,28 @@
 
         <section class="venues" id="venues">
           <div class="container">
-        
-            <h2 class="h2 section-title">Our Partner Stadiums</h2>
-        
-            <ul class="venues-list">
-        
-              <li>
-                <a href="stadium-1.html" class="venue-item">
-                  <figure>
-                    <img src="./assets/images/BAKET BALL STADIUM.jpg" alt="Stadium 1">
-                    <figcaption class="venue-name">King's Arena</figcaption>
-                  </figure>
-                </a>
-              </li>
-        
-              <li>
-                <a href="stadium-2.html" class="venue-item">
-                  <figure>
-                    <img src="./assets/images/BAKET BALL STADIUM.jpg" alt="Stadium 2">
-                    <figcaption class="venue-name">Jordan Sports Hall</figcaption>
-                  </figure>
-                </a>
-              </li>
-        
-              <li>
-                <a href="stadium-3.html" class="venue-item">
-                  <figure>
-                    <img src="./assets/images/FOOTBALL STADIUM.jpg" alt="Stadium 3">
-                    <figcaption class="venue-name">Olympic Field</figcaption>
-                  </figure>
-                </a>
-              </li>
-        
-              <li>
-                <a href="stadium-4.html" class="venue-item">
-                  <figure>
-                    <img src="./assets/images/FOOTBALL STADIUM.jpg" alt="Stadium 4">
-                    <figcaption class="venue-name">Champion's Ground</figcaption>
-                  </figure>
-                </a>
-              </li>
-        
-            </ul>
-        
-            <button class="btn btn-primary">View All Stadiums</button>
-        
+              <h2 class="h2 section-title">Our Partner Stadiums</h2>
+      
+              <ul class="venues-list">
+                  @foreach ($mostReservedVenues as $venue)
+                      <li>
+                          <a href="#" class="venue-item">
+                              <figure>
+                                  <img src="{{ asset('storage/' . $venue->img_venue) }}" alt="{{ $venue->name }}">
+                                  <figcaption class="venue-name">{{ $venue->name }}</figcaption>
+                              </figure>
+                          </a>
+                      </li>
+                  @endforeach
+              </ul>
+      
+              @if($footballCategory)
+              <a href="{{ route('categories.show', $footballCategory->id) }}" class="btn btn-primary">View All Stadiums</a>
+          @else
+              <a href="#" class="btn btn-primary">View All Stadiums</a>
+          @endif
           </div>
-        </section>
+      </section>
  
 
         <!-- 

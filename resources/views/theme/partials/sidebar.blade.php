@@ -90,10 +90,10 @@
                     </a>
 
                     <!-- Users Management -->
-                    <a class="nav-link {{ request()->is('admin/users*') ? 'active' : '' }}" href="{{ route('users.index') }}">
-                        <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                    {{-- <a class="nav-link {{ request()->is('admin/users*') ? 'active' : '' }}" href="{{ route('users.index') }}"> --}}
+                        {{-- <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                         Users
-                    </a>
+                    </a> --}}
 
                     <!-- Reservations -->
                     <a class="nav-link {{ request()->is('reservations*') ? 'active' : '' }}" href="{{ route('reservations.index') }}">

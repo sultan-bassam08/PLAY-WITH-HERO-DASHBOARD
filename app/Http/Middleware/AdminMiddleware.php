@@ -7,12 +7,12 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminMiddleware
 {
-    public function handle(Request $request, Closure $next)
-    {
-        if (Auth::check() && Auth::user()->role_id == 1) { // Assuming role_id = 1 is admin
-            return $next($request);
-        }
-
-        return abort(403, 'Unauthorized access.');
+    public function handle($request, Closure $next)
+{
+    if (auth()->check() && auth()->user()->role_id == 1) { // Assuming role_id 1 is for admin
+        return $next($request);
     }
+
+    return redirect('/home')->with('error', 'You do not have access to this page.');
+}
 }

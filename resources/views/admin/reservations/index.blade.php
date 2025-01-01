@@ -4,8 +4,8 @@
     <div class="card mb-4">
         <div class="card-header">
             <h3>Reservations</h3>
-            <a href="{{ route('reservations.create') }}" class="btn btn-success float-end">Add Reservation</a>
-        </div>
+<!-- In admin/reservations/index.blade.php -->
+{{-- <a href="{{ route('admin.reservations.create') }}" class="btn btn-primary">Create Reservation</a>        </div> --}}
         <div class="card-body">
             <table class="table">
                 <thead>
