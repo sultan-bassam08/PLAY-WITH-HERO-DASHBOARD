@@ -2,27 +2,8 @@
 <head>
     <meta charset="utf-8">
     <title>Book Match Slot</title>
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/color.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/normalize.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/transitions.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/prettyPhoto.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/swiper.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/jquery-ui.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/owl.theme.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/customScrollbar.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/icomoon.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/color.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-   
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    @include('user.partials.head-2')
+
 </head>
 
 <div class="tg-banner tg-haslayout">
@@ -49,7 +30,7 @@
 <main id="tg-main" class="tg-main tg-haslayout">
     <div class="container">
         <div class="row">
-            <div class="col-md-8 offset-md-2">
+            <div class="col-md-12 offset-md-2" >
                 <div class="booking-container" style="background: white; border-radius: 8px; padding: 30px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin-bottom: 30px;">
                     <!-- Match Details Section -->
                     <div class="match-details" style="margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #eee;">
@@ -82,13 +63,12 @@
                     </div>
 
                     <!-- Booking Form -->
-                    @auth
-                    <form action="{{ route('reservations.store') }}" method="POST">
+                    <form action="{{ route('userStore') }}" method="POST">
                         @csrf
                         <input type="hidden" name="match_id" value="{{ $match->id }}">
                         
                         <!-- Terms and Conditions -->
-                        <div class="form-group" style="margin-bottom: 20px;">
+                        <div class="form-group" style="margin-bottom: 20px;font-size:1.6rem">
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="terms" name="terms" required>
                                 <label class="custom-control-label" for="terms">I agree to the terms and conditions</label>
@@ -97,11 +77,13 @@
                         
 
                         <!-- Submit Button -->
-                        <button type="submit" class="tg-btn" style="background: #e5af26; width: 100%; padding: 15px; border: none; border-radius: 5px; color: white; font-size: 16px;" 
+                        <button type="submit" class="btn btn-primary" style=" width: 40%; padding: 15px;" 
                                 {{ $currentSpots >= $venueDescription->max_spot ? 'disabled' : '' }}>
                                 {{ $currentSpots >= $venueDescription->max_spot ? 'Match Full' : 'Confirm Booking' }}
                         </button>
                     </form>
+                    @auth
+                  
                     @else
                     <div class="alert alert-info">
                         Please <a href="{{ route('auth.login') }}">login</a> to book this match.
@@ -110,8 +92,8 @@
 
                     <!-- Match Rules -->
                     <div class="match-rules" style="margin-top: 30px;">
-                        <h4 style="color: #333; margin-bottom: 15px;">Match Rules</h4>
-                        <ul style="list-style: none; padding: 0;">
+                        <h3 style="color: #333; margin-bottom: 15px;">Match Rules</h3>
+                        <ul style="list-style: none; padding: 0;font-size:1.5rem">
                             <li style="margin-bottom: 10px;">
                                 <i class="fa fa-check" style="color: #e5af26; margin-right: 10px;"></i>
                                 Please arrive 15 minutes before the match time
@@ -132,18 +114,4 @@
     </div>
 </main>
 
-        <script src="{{ asset('assets/script/vendor/jquery-library.js') }}"></script>
-        <script src="{{ asset('assets/script/vendor/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('assets/script/vendor/jquery-library.js') }}"></script>
-        <script src="{{ asset('assets/script/vendor/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('assets/script/customScrollbar.min.js') }}"></script>
-        <script src="{{ asset('assets/script/owl.carousel.js') }}"></script>
-        <script src="{{ asset('assets/script/isotope.pkgd.js') }}"></script>
-        <script src="{{ asset('assets/script/prettyPhoto.js') }}"></script>
-        <script src="{{ asset('assets/script/swiper.min.js') }}"></script>
-        <script src="{{ asset('assets/script/jquery-ui.js') }}"></script>
-        <script src="{{ asset('assets/script/countTo.js') }}"></script>
-        <script src="{{ asset('assets/script/appear.js') }}"></script>
-        <script src="{{ asset('assets/script/main.js') }}"></script>
-        <script src="{{ asset('assets/script/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
-        
+@include('user.partials.scripts-2')

@@ -1,12 +1,29 @@
 
 <link rel="stylesheet" href="{{asset('assets/css/loginauth.css')}}">
-<main class="main">
+ <main class="main">
     
         <div class="container">
             <div class="forms">
                 <div class="sign__blog">
 
-                  
+                    <form method="POST" action="{{ route('login') }}" class="signin">
+                        @csrf
+                        <div class="profile__img__blog">
+                            <img src="{{ asset('assets/img/undraw_profile_pic_ic5t.svg') }}" alt="" class="profile">
+                        </div>
+                        <h2 class="form_title">Sign in</h2>
+                        <div class="input_item">
+                            <input name="email" type="email" class="form_input" required value="{{ old('email') }}">
+                            <label for="email" class="form_label"><i class="fas fa-envelope"></i> Email</label>
+                        </div>
+                        <div class="input_item">
+                            <span class="passwordEye"><i class="fas fa-eye-slash"></i></span>
+                            <input name="password" type="password" class="form_input form_pass" required>
+                            <label for="password" class="form_label"><i class="fas fa-lock"></i> Password</label>
+                        </div>
+                        <button type="submit" class="btn btn-primry">Sign in</button>
+                    </form>
+                    
 
                     <form method="POST" action="{{ route('register') }}" class="register">
                         @csrf
@@ -37,10 +54,7 @@
                                     </div>
                     
                                     <!-- Username Field (Optional) -->
-                                    <div class="input_item">
-                                        <input name="username" type="text" class="form_input" required value="{{ old('username') }}">
-                                        <label for="username" class="form_label"><i class="fas fa-user"></i> Username</label>
-                                    </div>
+                                  
                     
                                     <!-- Email Field -->
                                     <div class="input_item">
@@ -58,10 +72,7 @@
                     
                                 <div class="form_page page_2 page_password">
                                     <!-- Bio Field -->
-                                    <div class="input_item textarea_item">
-                                        <textarea name="bio" maxlength="300" class="form_input form_textarea" required>{{ old('bio') }}</textarea>
-                                        <label for="bio" class="form_label"><i class="fas fa-info"></i> Bio</label>
-                                    </div>
+                                   
                     
                                     <!-- Password Field -->
                                     <div class="input_item password_item">
@@ -79,7 +90,7 @@
                     
                                     <div class="register_buttons">
                                         <button type="button" class="btn backBtn">Back</button>
-                                        <button type="submit" class="btn nextBtn">Next</button>
+                                        <button type="submit" class="btn register_button">Submit</button>   
                                     </div>
                                 </div>
                     
@@ -101,7 +112,6 @@
                                     </div>
                                     <div class="register_buttons">
                                         <button type="button" class="btn backBtn">Back</button>
-                                        <button type="submit" class="btn register_button">Submit</button>
                                     </div>
                                 </div>
                             </div>
@@ -118,11 +128,11 @@
                     <div class="content">
 
                         <h3 class="panel__title">New here ?</h3>
-                        <p class="panel__text">Please Sign in from here </p>
+                        <p class="panel__text">Please Sign up from here </p>
                         <button class="button transparent" id="register__btn">Register</button>
 
                     </div>
-                    <img src="{{ asset('assets/img/undraw_Login_re_4vu2.svg') }}" alt="" class="panel__img">
+                    <img src="{{ asset('assets/img/junior-player-login-page.svg') }}" alt="" class="panel__img">
                 </div>
 
                 <div class="panel right__panel">
@@ -134,14 +144,14 @@
                         <button class="button transparent" id="signin__btn">Sign in</button>
 
                     </div>
-                    <img src="{{ asset('assets/img/undraw_authentication_fsn5.svg') }}" alt="" class="panel__img">
+                    <img src="{{ asset('assets/img/goal-auth.svg') }}" alt="" class="panel__img">
                 </div>
 
             </div>
 
         </div>
         
-</main>
+    </main>
 
 
 <script src="{{asset('assets/script/scriptsauth.js')}}"></script>

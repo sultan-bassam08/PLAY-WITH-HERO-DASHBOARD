@@ -1,36 +1,50 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Controller;
 
 class LoginController extends Controller
 {
-    // Show the login form
     public function showLoginForm()
     {
-        return view('auth.login'); // Create a login blade
+        if (Auth::check()) {
+            return $this->redirectBasedOnRole();
+        }
+        return view('auth.login');
     }
 
-    // Handle login attempt
     public function login(Request $request)
     {
-        dd("test");
-        // Validate input
-        $request->validate([
-            'username' => 'required|string',
-            'password' => 'required|string',
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
         ]);
 
-        // Attempt login
-        if (Auth::attempt($request->only('username', 'password'), $request->has('remember'))) {
-            return redirect()->route('home'); // Change to your desired route
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            return $this->redirectBasedOnRole();
         }
 
         return back()->withErrors([
-            'username' => 'Invalid credentials.',
+            'email' => 'Invalid credentials.',
         ]);
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/login');
+    }
+
+    protected function redirectBasedOnRole()
+    {
+        if (Auth::user()->role_id === 1) { // Assuming 1 is admin role_id
+            return redirect()->intended('/dashboard');
+        }
+        return redirect()->intended('/home');
     }
 }

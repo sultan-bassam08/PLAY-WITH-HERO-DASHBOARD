@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Reservation;
 use App\Models\GameMatch;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 
 class UserReservationController extends Controller
@@ -61,6 +62,7 @@ class UserReservationController extends Controller
 
     public function store(Request $request)
     {
+    
         $request->validate([
             'match_id' => 'required|exists:matches,id',
             'terms' => 'required|accepted'

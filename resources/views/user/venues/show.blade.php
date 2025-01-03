@@ -7,27 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/normalize.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/transitions.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/prettyPhoto.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/swiper.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/jquery-ui.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/owl.theme.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/customScrollbar.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/icomoon.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/color.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-   
-	
+    @include('user.partials.head-2')
     
         
-      
+    
 </head>
 <div class="tg-banner tg-haslayout">
     <div class="tg-imglayer">
@@ -156,7 +139,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         @if(Auth::check())
-                                        <a href="{{ route('reservations.create', $match->id) }}" class="tg-btn">
+                                        <a href="{{ route('user.reservations.create', $match->id) }}" class="tg-btn">
                                             Join Match
                                         </a>
                                     @else
@@ -189,16 +172,4 @@
         });
     @endif
 </script>
-        <script src="{{ asset('assets/script/vendor/jquery-library.js') }}"></script>
-        <script src="{{ asset('assets/script/vendor/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('assets/script/customScrollbar.min.js') }}"></script>
-        <script src="{{ asset('assets/script/owl.carousel.js') }}"></script>
-        <script src="{{ asset('assets/script/isotope.pkgd.js') }}"></script>
-        <script src="{{ asset('assets/script/prettyPhoto.js') }}"></script>
-        <script src="{{ asset('assets/script/swiper.min.js') }}"></script>
-        <script src="{{ asset('assets/script/jquery-ui.js') }}"></script>
-        <script src="{{ asset('assets/script/countTo.js') }}"></script>
-        <script src="{{ asset('assets/script/appear.js') }}"></script>
-        <script src="{{ asset('assets/script/main.js') }}"></script>
-        <script src="{{ asset('assets/script/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
-        
+@include('user.partials.scripts-2')

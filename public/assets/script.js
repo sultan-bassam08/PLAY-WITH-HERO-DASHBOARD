@@ -47,4 +47,30 @@ window.addEventListener("scroll", function () {
 
 })
 
-// register and login scripts
+// newsletter section 
+document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const formData = new FormData(this);
+  const messageDiv = document.getElementById('message');
+  
+  fetch('{{ route("newsletter.subscribe") }}', {
+      method: 'POST',
+      body: formData,
+      headers: {
+          'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
+      }
+  })
+  .then(response => response.json())
+  .then(data => {
+      messageDiv.textContent = data.message;
+      messageDiv.style.color = data.status === 'success' ? 'green' : 'red';
+      if (data.status === 'success') {
+          this.reset();
+      }
+  })
+  .catch(error => {
+      messageDiv.textContent = 'An error occurred. Please try again.';
+      messageDiv.style.color = 'red';
+  });
+});

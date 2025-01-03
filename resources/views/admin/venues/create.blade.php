@@ -1,17 +1,31 @@
 @extends('theme.master')
 
 @section('content')
-<h1>Add Venue</h1>
-<form action="{{ route('venues.store') }}" method="POST">
-    @csrf
-    <div class="mb-3">
-        <label for="name" class="form-label">Venue Name</label>
-        <input type="text" class="form-control" id="name" name="name" required>
-    </div>
-    <div class="mb-3">
-        <label for="location" class="form-label">Location</label>
-        <input type="text" class="form-control" id="location" name="location" required>
-    </div>
-    <button type="submit" class="btn btn-success">Submit</button>
-</form>
+<div class="container">
+    <h1>Add Venue</h1>
+    <form action="{{ route('admin.venues.store') }}" method="POST">
+        @csrf
+        <div class="mb-3">
+            <label for="name" class="form-label">Venue Name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" class="form-control" id="address" name="address" required>
+        </div>
+        <div class="mb-3">
+            <label for="contact_number" class="form-label">Contact Number</label>
+            <input type="text" class="form-control" id="mobile" name="mobile" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-3">
+            <label for="img_venue" class="form-label">Image</label>
+            <input type="file" class="form-control" id="img_venue" name="img_venue" accept="image/*"> <!-- Updated to file input -->
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
 @endsection

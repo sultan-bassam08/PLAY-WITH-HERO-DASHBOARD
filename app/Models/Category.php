@@ -19,8 +19,8 @@ class Category extends Model
         return $this->hasMany(GameMatch::class, 'category_id');
     }
 
-public function venues()
-{
-    return $this->hasMany(VenueDescription::class);
-}
+    public function venues()
+    {
+        return $this->hasMany(VenueDescription::class);
+    }
 }

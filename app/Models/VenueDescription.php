@@ -10,7 +10,7 @@ class VenueDescription extends Model
 
     protected $table = 'venue_description';
 
-    protected $fillable = ['venue_info_id', 'description', 'max_capacity', 'category_id'];
+    protected $fillable = ['venue_info_id', 'playground_description', 'max_spot', 'category_id'];
 
     public function venueInfo()
     {

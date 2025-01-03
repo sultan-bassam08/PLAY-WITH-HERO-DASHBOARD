@@ -1,13 +1,19 @@
 @extends('theme.master')
 
 @section('content')
-<h1>Add Category</h1>
-<form action="{{ route('categories.store') }}" method="POST">
-    @csrf
-    <div class="mb-3">
-        <label for="name" class="form-label">Category Name</label>
-        <input type="text" class="form-control" id="name" name="name" required>
-    </div>
-    <button type="submit" class="btn btn-success">Submit</button>
-</form>
+<div class="container">
+    <h2>Create Category</h2>
+    <form action="{{ route('admin.categories.store') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Image</label>
+            <input type="file" name="image" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Create Category</button>
+    </form>
+</div>
 @endsection

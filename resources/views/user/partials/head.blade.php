@@ -8,14 +8,16 @@
 
   <!-- Meta tags for SEO -->
   
-  <meta property="og:image" content="{{ asset('assets/img/social-share.png') }}">
+  <meta property="og:image" content="{{ asset('assets/images/logo.svg') }}">
   <meta property="og:url" content="{{ url()->current() }}">
 
   <!-- Favicon -->
-  <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
+  <link rel="icon" href="{{ asset('assets/images/logo.svg') }}" type="image/svg+xml">
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="{{ asset('assets/css/Style.css') }}">
+
+
   <link rel="stylesheet" href="{{ asset('assets/css/edit-profile.css') }}">
   
   <!-- Font Awesome -->

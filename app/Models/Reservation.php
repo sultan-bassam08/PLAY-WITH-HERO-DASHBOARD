@@ -16,6 +16,8 @@ class Reservation extends Model
         'reservation_status'
     ];
 
+    
+
     public function user()
     {
         return $this->belongsTo(User::class);

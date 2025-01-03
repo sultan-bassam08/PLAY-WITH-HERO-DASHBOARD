@@ -11,6 +11,10 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+    public function isAdmin()
+{
+    return $this->role === '1'; // Adjust according to your role system
+}
 
     /**
      * The attributes that are mass assignable.
@@ -60,4 +64,5 @@ class User extends Authenticatable
     {
         return $this->hasMany(Reservation::class);
     }
+    
 }

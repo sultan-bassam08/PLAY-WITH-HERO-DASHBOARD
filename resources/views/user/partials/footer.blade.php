@@ -16,9 +16,9 @@
                 <div class="footer-menu-wrapper">
                     <ul class="footer-menu-list">
                         <li><a href="#hero" class="footer-menu-link">Home</a></li>
-                        <li><a href="#about" class="footer-menu-link">About</a></li>
-                        <li><a href="#Category" class="footer-menu-link">Category</a></li>
+                        <li><a href="#hero" class="footer-menu-link">Category</a></li>
                         <li><a href="#contact" class="footer-menu-link">Contact</a></li>
+                        <li><a href="#about" class="footer-menu-link">About</a></li>
                     </ul>
 
                     <!-- Search Input -->
@@ -34,16 +34,16 @@
             <!-- Quick Links and Social Media -->
             <div class="footer-quicklinks">
                 <ul class="quicklink-list">
-                    <li><a href="#" class="quicklink-item">Faq</a></li>
-                    <li><a href="#" class="quicklink-item">Help center</a></li>
-                    <li><a href="#" class="quicklink-item">Terms of use</a></li>
-                    <li><a href="#" class="quicklink-item">Privacy</a></li>
+                    <li><a href="#hero" class="quicklink-item">Faq</a></li>
+                    <li><a href="#hero" class="quicklink-item">Help center</a></li>
+                    <li><a href="#hero" class="quicklink-item">Terms of use</a></li>
+                    <li><a href="#hero" class="quicklink-item">Privacy</a></li>
                 </ul>
 
                 <!-- Social Links -->
                 <ul class="footer-social-list">
-                    <li><a href="#" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a></li>
-                    <li><a href="#" class="social-link"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                    <li><a href="#hero" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                    <li><a href="#hero" class="social-link"><ion-icon name="logo-instagram"></ion-icon></a></li>
                 </ul>
             </div>
 

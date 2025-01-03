@@ -1,39 +1,10 @@
 
 
-
-<head>
-	<meta charset="utf-8">
-	<meta name="csrf-token" content="{{ csrf_token() }}">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Soccer BootStrap HTML5 CSS3 Theme</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<!-- Stylesheets -->
-	<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/normalize.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/transitions.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/prettyPhoto.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/swiper.min.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/jquery-ui.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/owl.theme.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/customScrollbar.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/icomoon.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/color.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-   
-	<!-- Scripts -->
-    
-</head>
-
+       @include('user.partials.head-2')
 <body>
     
     <div id="tg-wrapper" class="tg-wrapper tg-haslayout">
+
         <!--************************************
             Banner Start
             *************************************-->
@@ -100,7 +71,7 @@
                                             <div class="tg-matchhover">
                                                 <address style="margin: 15px 0; font-size: 16px;">{{ $venue->venueInfo->address }}</address>
                                                 <div class="tg-btnbox">
-                                                    <a class="tg-btn" href="{{ route('venues.view', $venue->venue_info_id) }}"
+                                                    <a class="btn" href="{{ route('venues.view', $venue->venue_info_id) }}"
                                                         >
                                                         <span>View Details</span>
                                                     </a>
@@ -158,29 +129,8 @@
                     </div>
                 </figure>
             </section>
-        </main>
-        
-        
-        <!--************************************
-            Main End
-            *************************************-->
+        </main>         
         </div>
-        
-      
-        <script src="{{ asset('assets/script/vendor/jquery-library.js') }}"></script>
-        <script src="{{ asset('assets/script/vendor/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('assets/script/customScrollbar.min.js') }}"></script>
-        <script src="{{ asset('assets/script/owl.carousel.js') }}"></script>
-        <script src="{{ asset('assets/script/isotope.pkgd.js') }}"></script>
-        <script src="{{ asset('assets/script/prettyPhoto.js') }}"></script>
-        <script src="{{ asset('assets/script/swiper.min.js') }}"></script>
-        <script src="{{ asset('assets/script/jquery-ui.js') }}"></script>
-        <script src="{{ asset('assets/script/countTo.js') }}"></script>
-        <script src="{{ asset('assets/script/appear.js') }}"></script>
-        <script src="{{ asset('assets/script/main.js') }}"></script>
-        <script src="{{ asset('assets/script/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>
-        
-        
-
-    
-</body>
+        @include('user.partials.scripts-2')
+          
+    </body>

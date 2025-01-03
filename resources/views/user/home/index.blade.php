@@ -153,7 +153,7 @@
               <ul class="venues-list">
                   @foreach ($mostReservedVenues as $venue)
                       <li>
-                          <a href="#" class="venue-item">
+                          <a href="{{ route('categories.show', $footballCategory->id) }}" class="venue-item">
                               <figure>
                                   <img src="{{ asset('storage/' . $venue->img_venue) }}" alt="{{ $venue->name }}">
                                   <figcaption class="venue-name">{{ $venue->name }}</figcaption>
@@ -164,10 +164,10 @@
               </ul>
       
               @if($footballCategory)
-              <a href="{{ route('categories.show', $footballCategory->id) }}" class="btn btn-primary">View All Stadiums</a>
-          @else
-              <a href="#" class="btn btn-primary">View All Stadiums</a>
-          @endif
+              <button class="btn btn-primary"><a href="{{ route('categories.show', $footballCategory->id) }}" class=" btn">View All Stadiums</a></button>
+              @else
+              <button class="btn btn-primary">View All Stadiums</button>
+              @endif
           </div>
       </section>
  
@@ -178,32 +178,31 @@
 
         <section class="newsletter">
           <div class="container">
-        
-            <div class="newsletter-card">
-        
-              <div class="newsletter-content">
-                <figure class="newsletter-img">
-                  <img src="./assets/images/newletter image.png" alt="Join our community">
-                </figure>
-        
-                <h2 class="h2 newsletter-title">Stay Updated on Sports Activities</h2>
-                <p class="newsletter-text">Get the latest updates on match schedules, venue deals, and tips to enhance your skills. Join our community of sports enthusiasts!</p>
+              <div class="newsletter-card">
+                  <div class="newsletter-content">
+                      <figure class="newsletter-img">
+                          <img src="./assets/images/newletter image.png" alt="Join our community">
+                      </figure>
+                      <h2 class="h2 newsletter-title">Stay Updated on Sports Activities</h2>
+                      <p class="newsletter-text">Get the latest updates on match schedules, venue deals, and tips to enhance your skills. Join our community of sports enthusiasts!</p>
+                  </div>
+      
+                  <form id="newsletterForm" class="newsletter-form">
+                      @csrf
+                      <input type="email" name="email" required placeholder="Your Email Address" class="input-field">
+                      <button type="submit" class="btn btn-secondary">Subscribe</button>
+                      <div id="message"></div>
+                  </form>
               </div>
-        
-              <form action="" class="newsletter-form">
-                <input type="email" name="email" required placeholder="Your Email Address" class="input-field">
-        
-                <button type="submit" class="btn btn-secondary">Subscribe</button>
-              </form>
-        
-            </div>
-        
           </div>
-          <a href="#top" class="btn btn-primary go-top" data-go-top>
-            <ion-icon name="chevron-up-outline"></ion-icon>
-          </a>
-        </section>
-        
+      </section>
+      
+      <a href="#top" class="btn btn-primary go-top" data-go-top>
+          <ion-icon name="chevron-up-outline"></ion-icon>
+      </a>
+
+    
 
 
+ 
   @endsection
