@@ -30,11 +30,11 @@
 
             <!-- Navbar Links -->
             <ul class="navbar-list">
-                <li><a href="#hero" class="navbar-link">Home</a></li>
+                <li><a href="{{ route('home') }}"" class="navbar-link">Home</a></li>
                 <li><a href="#about" class="navbar-link">About</a></li>
 
                 <li class="nav-item dropdown">
-                    <a href="#" class="navbar-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a href="#category" class="navbar-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Category
                     </a>
                     <ul class="dropdown-menu">
@@ -53,12 +53,12 @@
             <!-- Social Media Links -->
             <ul class="nav-social-list">
                 <li>
-                    <a href="#" class="social-link">
+                    <a href="{{ route('home') }}" class="social-link">
                         <ion-icon name="logo-facebook"></ion-icon>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="social-link">
+                    <a href="{{ route('home') }}" class="social-link">
                         <ion-icon name="logo-instagram"></ion-icon>
                     </a>
                 </li>

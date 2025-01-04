@@ -160,12 +160,52 @@ textarea.form-control {
         <div class="mb-3">
             <label for="profile_picture" class="form-label">Profile Picture</label>
             <input type="file" name="profile_picture" class="form-control" accept="image/*">
+            @if($user->profile_picture)
+                <img src="{{ asset('storage/' . $user->profile_picture) }}" alt="Current Profile Picture" class="img-thumbnail mt-2" style="max-width: 150px;">
+            @endif
         </div>
 
-        <!-- Name -->
+        <!-- Name Field -->
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
-            <input type="text" name="name" class="form-control" value="{{ old('name', $user->name) }}" required>
+            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name', $user->name) }}" required>
+            @error('name')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <!-- Email -->
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" name="email" class="form-control" value="{{ old('email', $user->email) }}" required>
+        </div>
+
+        <!-- Phone -->
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="text" name="phone" class="form-control" value="{{ old('phone', $user->phone) }}">
+        </div>
+
+        <!-- Address -->
+        <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" name="address" class="form-control" value="{{ old('address', $user->address) }}">
+        </div>
+
+        <!-- Gender -->
+        <div class="mb-3">
+            <label for="gender" class="form-label">Gender</label>
+            <select name="gender" class="form-control">
+                <option value="">Select Gender</option>
+                <option value="male" {{ old('gender', $user->gender) == 'male' ? 'selected' : '' }}>Male</option>
+                <option value="female" {{ old('gender', $user->gender) == 'female' ? 'selected' : '' }}>Female</option>
+            </select>
+        </div>
+
+        <!-- Date of Birth -->
+        <div class="mb-3">
+            <label for="date_of_birth" class="form-label">Date of Birth</label>
+            <input type="date" name="date_of_birth" class="form-control" value="{{ old('date_of_birth', $user->date_of_birth) }}">
         </div>
 
         <!-- Bio -->
@@ -179,7 +219,6 @@ textarea.form-control {
             <button type="submit" class="btn btn-success">Save Changes</button>
             <a href="{{ route('user.profile.index') }}" class="btn btn-secondary">Cancel</a>
         </div>
-        
     </form>
 </div>
 @endsection

@@ -307,6 +307,7 @@ body.active {
 
     .header-actions {
         display: none;
+        
     }
 
     .dropdown-menu {
@@ -1592,6 +1593,7 @@ body.active {
         display: flex;
         justify-content: center;
         align-items: center;
+        
     }
 
     .header-actions .search {

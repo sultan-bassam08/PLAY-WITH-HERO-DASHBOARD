@@ -27,7 +27,7 @@
                     <td>{{ ucfirst($match->status) }}</td>
                     <td>
                         <a href="{{ route('admin.matches.edit', $match) }}" class="btn btn-primary btn-sm">Edit</a>
-                        <form action="{{ route('admin.matches.destroy', $match) }}" method="POST" class="d-inline">
+                        <form action="{{ route('admin.matches.destroy', $match->id) }}" method="POST" class="d-inline ">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm" 

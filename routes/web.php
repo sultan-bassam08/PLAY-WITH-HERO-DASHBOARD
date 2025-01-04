@@ -1,8 +1,7 @@
 <?php
-
-use App\Http\Controllers\AdminVenueDescriptionController;
-use App\Http\Controllers\AdminVenueInfoController;
-use Illuminate\Support\Facades\Route;
+    use App\Http\Controllers\AdminVenueDescriptionController;
+    use App\Http\Controllers\AdminVenueInfoController;
+    use Illuminate\Support\Facades\Route;
     use App\Http\Controllers\AuthController;
     use App\Http\Controllers\HomeController;
     use App\Http\Controllers\ContactController;
@@ -22,7 +21,11 @@ use Illuminate\Support\Facades\Route;
     use App\Http\Controllers\GameMatchController;
     use App\Http\Controllers\NewsletterController;
 
-// routes/web.php
+
+
+    
+
+                    // routes/web.php
         Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');    
         Route::post('/reservationsItem', [UserReservationController::class, 'store'])->name('userStore');
         Route::middleware(['auth'])->group(function () {
@@ -34,67 +37,62 @@ use Illuminate\Support\Facades\Route;
         Route::get('/booking-confirmation/{reservation}', [UserReservationController::class, 'showConfirmation'])
         ->name('booking.confirmation');
         Route::get('/bookings', [UserReservationController::class, 'showBookings'])->name('user.bookings');
-    });
+        });
 
-    // Venue Info
-    Route::get('/venues', [VenueInfoController::class, 'index'])->name('venues.index');
-    // Route::get('/venues/{id}', [VenueInfoController::class, 'show'])->name('venues.show');
-    // Route::get('/venues/{id}', [App\Http\Controllers\VenueInfoController::class, 'show'])->name('venues.view');
-    Route::get('/venues/view/{id}', [UserVenueController::class, 'show'])->name('venues.view');
+        // Venue Info
+        Route::get('/venues1', [VenueInfoController::class, 'index'])->name('user.venues.index');
+        Route::get('/venues/view/{id}', [UserVenueController::class, 'show'])->name('venues.view');
 
-    // Venue Description
-    Route::get('/venue-descriptions', [VenueDescriptionController::class, 'index'])->name('venue_descriptions.index');
-    Route::get('/venue-descriptions/{id}', [VenueDescriptionController::class, 'show'])->name('venue_descriptions.show');
+        // Venue Description
+        Route::get('/venue-descriptions', [VenueDescriptionController::class, 'index'])->name('venue_descriptions.index');
+        Route::get('/venue-descriptions/{id}', [VenueDescriptionController::class, 'show'])->name('venue_descriptions.show');
 
-    // Display the contact form (located in 'home/index.blade.php')
-    Route::get('user/home/index', [ContactController::class, 'create'])->name('user.home.index');
+        // Display the contact form (located in 'home/index.blade.php')
+        Route::get('user/home/index', [ContactController::class, 'create'])->name('user.home.index');
+        Route::post('user/home/index', [ContactController::class, 'store'])->name('user.home.index');
 
-    // Handle the form submission
-    Route::post('user/home/index', [ContactController::class, 'store'])->name('user.home.index');
-
-
-    // List all categories (not specific to one category)
+        // List all categories (not specific to one category)
         Route::get('/categories', [UserCategoryController::class, 'index'])->name('user.categories.index');
 
-    // Display specific category details
+        // Display specific category details
         Route::get('/categories/{id}', [UserCategoryController::class, 'show'])->name('categories.show');
         Route::prefix('user')->middleware('auth')->group(function () {
         Route::get('/profile', [UserProfileController::class, 'index'])->name('user.profile.index');
         Route::get('/profile/edit', [UserProfileController::class, 'edit'])->name('user.profile.edit');
         Route::put('/profile', [UserProfileController::class, 'update'])->name('user.profile.update');
-    });
+        });
 
-    // ------------------------- PUBLIC ROUTES -----------------------------
-    Route::prefix('auth')->group(function () {
-        Route::get('/login', [AuthController::class, 'showLogin'])->name('auth.login');
-    });
+        // ------------------------- PUBLIC ROUTES -----------------------------
+        Route::prefix('auth')->group(function () {
+            Route::get('/login', [AuthController::class, 'showLogin'])->name('auth.login');
+        });
 
-    Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
-    Route::post('/login', [AuthenticatedSessionController::class, 'store']);
-    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->middleware('auth')->name('logout');
+        Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
+        Route::post('/login', [AuthenticatedSessionController::class, 'store']);
+        Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->middleware('auth')->name('logout');
 
-    // Redirect the root route to the home page
-    Route::get('/', function () {
-        return redirect()->route('home'); // Default route directs to home
-    });
+        // Redirect the root route to the home page
+        Route::get('/', function () {
+            return redirect()->route('home'); // Default route directs to home
+        });
 
-    // Home Page
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
+        // Home Page
+        Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-
-    
-    Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-    Route::post('/login', [LoginController::class, 'login']);
-    // ------------------------- AUTHENTICATION ----------------------------
-
-    // Guest routes (Only accessible for unauthenticated users)
-    Route::middleware('guest')->group(function () {
         Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
         Route::post('/login', [LoginController::class, 'login']);
-    });
 
-    // Logout (Accessible by authenticated users only)
-    Route::middleware('auth')->post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+        
+        // ------------------------- AUTHENTICATION ----------------------------
+
+        // Guest routes (Only accessible for unauthenticated users)
+        Route::middleware('guest')->group(function () {
+            Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+            Route::post('/login', [LoginController::class, 'login']);
+        });
+
+        // Logout (Accessible by authenticated users only)
+        Route::middleware('auth')->post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
     // ------------------------- ADMIN DASHBOARD ---------------------------
 

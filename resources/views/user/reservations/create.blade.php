@@ -19,7 +19,7 @@
                 </div>
                 <ol class="tg-breadcrumb">
                     <li><a href="{{ route('home') }}">Home</a></li>
-                    <li><a href="{{ route('venues.index') }}">Venues</a></li>
+                    <li><a href="{{ route('user.venues.index') }}">Venues</a></li>
                     <li class="active">Book Match</li>
                 </ol>
             </div>

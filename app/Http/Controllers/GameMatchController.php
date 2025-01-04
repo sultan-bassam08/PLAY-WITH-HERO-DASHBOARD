@@ -97,4 +97,14 @@ public function update(Request $request, GameMatch $match)
 
     return redirect()->route('admin.matches.index')->with('success', 'Match updated');
 }
+
+    public function destroy(GameMatch $match)
+    {
+        // Delete the match
+        $match->delete();
+
+        // Redirect to the matches index page with a success message
+        return redirect()->route('admin.matches.index')->with('success', 'Match deleted successfully.');
+    }
+
 }

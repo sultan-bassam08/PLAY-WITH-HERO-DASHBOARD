@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="{{ asset('assets/css/user-profile.css') }}">
 @section('content')
 <style>
+     
     /* Main content area with navbar and footer spacing */
 .main-content {
     padding-top: 120px; /* Space for navbar */
@@ -116,18 +117,29 @@ footer {
     <h1>User Profile</h1>
     <div class="profile-header">
         <img 
-            src="{{ $user->profile_picture ? asset('storage/' . $user->profile_picture) : asset('default-user-avatar.png') }}" 
+            src="{{ $user->profile_picture ? asset('storage/' . $user->profile_picture) : asset('assets/iamge/404-img.jpg') }}" 
             alt="Profile Picture" 
             class="profile-picture"
         >
         <h2>{{ $user->name }}</h2>
+        
+        <!-- Bio -->
         <p><strong>Bio:</strong> {{ $user->bio ?? 'No bio provided.' }}</p>
-        <p><strong>Email:</strong> {{ $user->email }}</p>
-        <p><strong>Phone:</strong> {{ $user->phone ?? 'Not available' }}</p>
-        <p><strong>Address:</strong> {{ $user->address ?? 'Not available' }}</p>
-        <p><strong>Gender:</strong> {{ ucfirst($user->gender) ?? 'Not specified' }}</p>
-        <p><strong>Date of Birth:</strong> {{ $user->date_of_birth ?? 'Not specified' }}</p>
 
+        <!-- Email -->
+        <p><strong>Email:</strong> {{ $user->email }}</p>
+
+        <!-- Phone -->
+        <p><strong>Phone:</strong> {{ $user->phone ?? 'Not available' }}</p>
+
+        <!-- Address -->
+        <p><strong>Address:</strong> {{ $user->address ?? 'Not available' }}</p>
+
+        <!-- Gender -->
+        <p><strong>Gender:</strong> {{ ucfirst($user->gender) ?? 'Not specified' }}</p>
+
+        <!-- Date of Birth -->
+        <p><strong>Date of Birth:</strong> {{ $user->date_of_birth ? \Carbon\Carbon::parse($user->date_of_birth)->format('Y-m-d') : 'Not specified' }}</p>
         <a href="{{ route('user.profile.edit') }}" class="btn btn-primary">Edit Profile</a>
     </div>
 </div>

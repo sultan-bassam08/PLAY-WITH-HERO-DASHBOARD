@@ -7,34 +7,26 @@
                 <form method="POST" action="{{ route('login') }}" class="signin">
                     @csrf
                     <div class="profile__img__blog">
-                        <img src="{{ asset('assets/img/undraw_profile_pic_ic5t.svg') }}" alt="Profile" class="profile">
+                        <img src="{{ asset('assets/img/undraw_profile_pic_ic5t.svg') }}" alt="" class="profile">
                     </div>
                     <h2 class="form_title">Sign in</h2>
-
-                    <!-- Email Field -->
                     <div class="input_item">
                         <input name="email" type="email" class="form_input" required value="{{ old('email') }}">
                         <label for="email" class="form_label"><i class="fas fa-envelope"></i> Email</label>
-                        @error('email')<span class="error_message">{{ $message }}</span>@enderror
                     </div>
-
-                    <!-- Password Field -->
                     <div class="input_item">
                         <span class="passwordEye"><i class="fas fa-eye-slash"></i></span>
                         <input name="password" type="password" class="form_input form_pass" required>
                         <label for="password" class="form_label"><i class="fas fa-lock"></i> Password</label>
-                        @error('password')<span class="error_message">{{ $message }}</span>@enderror
                     </div>
-
-                    <button type="submit" class="btn btn-primary">Sign in</button>
+                    <button type="submit" class="btn btn-primry">Sign in</button>
                 </form>
 
-                <!-- Register Form -->
+                <!-- Registration Form -->
                 <form method="POST" action="{{ route('register') }}" class="register">
                     @csrf
                     <h2 class="form_title">Register</h2>
 
-                    <!-- Registration Steps -->
                     <div class="form_steps">
                         <div class="steps">
                             <p class="steps_title">Name</p>
@@ -50,41 +42,40 @@
                         </div>
                     </div>
 
-                    <!-- Registration Pages -->
                     <div class="register_content">
                         <div class="form_pages">
-                            <!-- Step 1: Name and Contact -->
+                            <!-- Step 1: Name and Email -->
                             <div class="form_page page_1">
+                                <!-- Name Field -->
                                 <div class="input_item">
                                     <input name="name" type="text" class="form_input" required value="{{ old('name') }}">
                                     <label for="name" class="form_label"><i class="fas fa-user"></i> Name</label>
-                                    @error('name')<span class="error_message">{{ $message }}</span>@enderror
                                 </div>
-                                
+
+                                <!-- Email Field -->
                                 <div class="input_item">
                                     <input name="email" type="email" class="form_input form_email" required value="{{ old('email') }}">
                                     <label for="email" class="form_label"><i class="fas fa-envelope"></i> Email</label>
-                                    @error('email')<span class="error_message">{{ $message }}</span>@enderror
                                 </div>
 
+                                <!-- Phone Field -->
                                 <div class="input_item">
                                     <input name="phone" type="number" class="form_input" required value="{{ old('phone') }}">
                                     <label for="phone" class="form_label"><i class="fas fa-phone"></i> Phone number</label>
-                                    @error('phone')<span class="error_message">{{ $message }}</span>@enderror
                                 </div>
-
                                 <button type="button" class="btn nextBtn">Next</button>
                             </div>
 
                             <!-- Step 2: Password -->
                             <div class="form_page page_2 page_password">
+                                <!-- Password Field -->
                                 <div class="input_item password_item">
                                     <span class="passwordEye"><i class="fas fa-eye-slash"></i></span>
                                     <input name="password" type="password" class="form_input form_pass form_password" required>
                                     <label for="password" class="form_label"><i class="fas fa-lock"></i> Password</label>
-                                    @error('password')<span class="error_message">{{ $message }}</span>@enderror
                                 </div>
 
+                                <!-- Confirm Password Field -->
                                 <div class="input_item password_item">
                                     <span class="passwordEye"><i class="fas fa-eye-slash"></i></span>
                                     <input name="password_confirmation" type="password" class="form_input form_pass form_password" required>
@@ -97,25 +88,24 @@
                                 </div>
                             </div>
 
-                            <!-- Step 3: Avatar Upload -->
+                            <!-- Step 3: Avatar -->
                             <div class="form_page page_3">
                                 <div class="input_item input_uploader">
                                     <div class="form__imgUploader">
                                         <div class="form__wrapper">
                                             <div class="form__image">
-                                                <img src="{{ asset('assets/img/undraw_authentication_fsn5.svg') }}" alt="Upload Image" class="form__img">
+                                                <img src="{{ asset('assets/img/undraw_authentication_fsn5.svg') }}" alt="" class="form__img">
                                             </div>
                                             <div class="formUploader__content">
                                                 <div class="formUploader__icon"><i class="fas fa-cloud-upload-alt"></i></div>
-                                                <div class="formUploader__text">No photo chosen yet!</div>
+                                                <div class="formUploader__text">No photo chosen, yet!</div>
                                             </div>
                                         </div>
                                         <input name="photo" type="file" class="imgUploader" accept=".jpg, .jpeg, .png">
                                     </div>
-                                    @error('photo')<span class="error_message">{{ $message }}</span>@enderror
                                 </div>
-
                                 <div class="register_buttons">
+                                    <button type="button" class="btn backBtn">Back</button>
                                     <button type="submit" class="btn register_button">Submit</button>
                                 </div>
                             </div>
@@ -125,26 +115,27 @@
             </div>
         </div>
 
-        <!-- Panels -->
+        <!-- Panels for Switching Between Sign-in and Register -->
         <div class="panels__blog">
             <div class="panel left__panel">
                 <div class="content">
                     <h3 class="panel__title">New here?</h3>
-                    <p class="panel__text">Please sign up here</p>
+                    <p class="panel__text">Please Sign up from here</p>
                     <button class="button transparent" id="register__btn">Register</button>
                 </div>
-                <img src="{{ asset('assets/img/junior-player-login-page.svg') }}" alt="Register" class="panel__img">
+                <img src="{{ asset('assets/img/junior-player-login-page.svg') }}" alt="" class="panel__img">
             </div>
 
             <div class="panel right__panel">
                 <div class="content">
                     <h3 class="panel__title">Already have an account?</h3>
-                    <p class="panel__text">Please sign in here</p>
+                    <p class="panel__text">Please Sign in from here</p>
                     <button class="button transparent" id="signin__btn">Sign in</button>
                 </div>
-                <img src="{{ asset('assets/img/goal-auth.svg') }}" alt="Login" class="panel__img">
+                <img src="{{ asset('assets/img/goal-auth.svg') }}" alt="" class="panel__img">
             </div>
         </div>
     </div>
 </main>
+
 <script src="{{ asset('assets/script/scriptsauth.js') }}"></script>
