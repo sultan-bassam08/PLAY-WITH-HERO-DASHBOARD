@@ -15,7 +15,7 @@
                 <h5 class="card-title">{{ $category->name }}</h5>
                 <div class="btn-group">
                     <a href="{{ route('admin.categories.edit', $category) }}" class="btn btn-primary">Edit</a>
-                    <form action="{{ route('admin.categories.destroy', $category) }}" method="POST" class="d-inline">
+                    <form action="{{ route('admin.categories.destroy', $category->id) }}" method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>

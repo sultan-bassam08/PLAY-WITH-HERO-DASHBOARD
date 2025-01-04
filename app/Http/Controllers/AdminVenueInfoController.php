@@ -22,22 +22,26 @@ class AdminVenueInfoController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
-            'mobile' => 'required|string|max:20',
-            'email' => 'required|email|max:255',
-            'img_venue' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validate image file
-        ]);
-            
-        if ($request->hasFile('img_venue')) {
-            $validatedData['img_venue'] = $request->file('img_venue')->store('venues', 'public'); 
-        }
-        VenueInfo::create($validatedData);
+{
+    // Debug the request data
+  
 
-        return redirect()->route('admin.venues.index')->with('success', 'Venue created successfully.');
+    $validatedData = $request->validate([
+        'name' => 'required|string|max:255',
+        'address' => 'required|string|max:255',
+        'mobile' => 'required|string|max:20',
+        'email' => 'required|email|max:255',
+        'img_venue' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
+
+    if ($request->hasFile('img_venue')) {
+        $validatedData['img_venue'] = $request->file('img_venue')->store('img_venues', 'public');
     }
+
+    VenueInfo::create($validatedData);
+
+    return redirect()->route('admin.venues.index')->with('success', 'Venue created successfully.');
+}
 
     public function show($id)
     {

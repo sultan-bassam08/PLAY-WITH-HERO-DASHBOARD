@@ -25,14 +25,16 @@ public function store(Request $request)
 {
     $request->validate([
         'name' => 'required',
-        'image' => 'required|image|mux:2048'
+        'image' => 'required|image|max:2048' // Fixed typo: 'mux' -> 'max'
     ]);
 
+    // Store the image in the 'public' disk
     $imagePath = $request->file('image')->store('categories', 'public');
 
+    // Save the relative path (without 'storage/')
     Category::create([
         'name' => $request->name,
-        'image_path' => 'storage/' . $imagePath
+        'image_path' => $imagePath // Remove 'storage/' from the stored path
     ]);
 
     return redirect()->back();

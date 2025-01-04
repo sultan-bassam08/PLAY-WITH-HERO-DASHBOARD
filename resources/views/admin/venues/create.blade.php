@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1>Add Venue</h1>
-    <form action="{{ route('admin.venues.store') }}" method="POST">
+    <form action="{{ route('admin.venues.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="name" class="form-label">Venue Name</label>
@@ -14,7 +14,7 @@
             <input type="text" class="form-control" id="address" name="address" required>
         </div>
         <div class="mb-3">
-            <label for="contact_number" class="form-label">Contact Number</label>
+            <label for="mobile" class="form-label">Contact Number</label>
             <input type="text" class="form-control" id="mobile" name="mobile" required>
         </div>
         <div class="mb-3">
@@ -23,7 +23,7 @@
         </div>
         <div class="mb-3">
             <label for="img_venue" class="form-label">Image</label>
-            <input type="file" class="form-control" id="img_venue" name="img_venue" accept="image/*"> <!-- Updated to file input -->
+            <input type="file" class="form-control" id="img_venue" name="img_venue" accept="image/*" required>
         </div>
         <button type="submit" class="btn btn-success">Submit</button>
     </form>

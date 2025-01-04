@@ -14,6 +14,9 @@
             <li class="nav-item">
                 <a class="nav-link {{ $status === 'declined' ? 'active' : '' }}" href="{{ route('user.bookings', ['status' => 'declined']) }}">Cancelled</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link {{ $status === 'confirmed' ? 'active' : '' }}" href="{{ route('user.bookings', ['status' => 'confirmed']) }}">Confirmed</a>
+            </li>
         </ul>
         
         <div class="bookings-content">

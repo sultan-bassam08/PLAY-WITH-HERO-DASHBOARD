@@ -14,12 +14,12 @@
             </select>
         </div>
         <div class="mb-3">
-            <label for="description" class="form-label">Description</label>
-            <textarea class="form-control" id="description" name="description" required></textarea>
+            <label for="playground_description" class="form-label">Description</label>
+            <textarea class="form-control" id="playground_description" name="playground_description" required></textarea>
         </div>
         <div class="mb-3">
-            <label for="max_capacity" class="form-label">Max Capacity</label>
-            <input type="number" class="form-control" id="max_capacity" name="max_capacity" required>
+            <label for="max_spot" class="form-label">Max Capacity</label>
+            <input type="number" class="form-control" id="max_spot" name="max_spot" required>
         </div>
         <div class="mb-3">
             <label for="category_id" class="form-label">Category</label>

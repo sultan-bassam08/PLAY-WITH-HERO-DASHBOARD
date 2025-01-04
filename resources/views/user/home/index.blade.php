@@ -128,7 +128,7 @@
                       <li>
                           <a href="{{ route('categories.show', $category->id) }}" class="category-item">
                               <figure>
-                                  <img src="{{ asset($category->image_path) }}" alt="{{ $category->name }}" class="category-img">
+                                <img src="{{ asset('storage/' . $category->image_path) }}" class="category-img" alt="{{ $category->name }}">
                                   <figcaption class="category-name">{{ ucfirst($category->name) }}</figcaption>
                               </figure>
                           </a>
@@ -151,17 +151,17 @@
               <h2 class="h2 section-title">Our Partner Stadiums</h2>
       
               <ul class="venues-list">
-                  @foreach ($mostReservedVenues as $venue)
-                      <li>
-                          <a href="{{ route('categories.show', $footballCategory->id) }}" class="venue-item">
-                              <figure>
-                                  <img src="{{ asset('storage/' . $venue->img_venue) }}" alt="{{ $venue->name }}">
-                                  <figcaption class="venue-name">{{ $venue->name }}</figcaption>
-                              </figure>
-                          </a>
-                      </li>
-                  @endforeach
-              </ul>
+                @foreach ($mostReservedVenues as $venue)
+                    <li>
+                        <a href="{{ route('categories.show', $footballCategory->id) }}" class="venue-item">
+                            <figure>
+                                <img src="{{ asset('storage/' . $venue->img_venue) }}" alt="{{ $venue->name }}">
+                                <figcaption class="venue-name">{{ $venue->name }}</figcaption>
+                            </figure>
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
       
               @if($footballCategory)
               <button class="btn btn-primary"><a href="{{ route('categories.show', $footballCategory->id) }}" class=" btn">View All Stadiums</a></button>

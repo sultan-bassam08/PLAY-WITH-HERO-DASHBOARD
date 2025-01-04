@@ -55,7 +55,7 @@
         Route::get('/categories', [UserCategoryController::class, 'index'])->name('user.categories.index');
 
         // Display specific category details
-        Route::get('/categories/{id}', [UserCategoryController::class, 'show'])->name('categories.show');
+        Route::get('/categories/{id}', [UserCategoryController::class, 'show'])->name('user.categories.show');
         Route::prefix('user')->middleware('auth')->group(function () {
         Route::get('/profile', [UserProfileController::class, 'index'])->name('user.profile.index');
         Route::get('/profile/edit', [UserProfileController::class, 'edit'])->name('user.profile.edit');
@@ -75,7 +75,7 @@
         Route::get('/', function () {
             return redirect()->route('home'); // Default route directs to home
         });
-
+        
         // Home Page
         Route::get('/home', [HomeController::class, 'index'])->name('home');
 
@@ -99,14 +99,15 @@
         // Admin Routes
         Route::middleware(['auth', 'admin'])->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-        Route::resource('admin/categorie', CategoryController::class)->names([
+        Route::resource('categories', CategoryController::class)->names([
             'index' => 'admin.categories.index',
-            'create' => 'admin.categories.create',
             'store' => 'admin.categories.store',
             'edit' => 'admin.categories.edit',
             'update' => 'admin.categories.update',
             'destroy' => 'admin.categories.destroy'
         ]);
+
+        Route::get('category/create' ,[CategoryController::class , 'create'])->name('admin.categories.create');
         
     
         // Matches Management
