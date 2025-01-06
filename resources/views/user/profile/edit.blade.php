@@ -1,6 +1,11 @@
 @extends('user.layouts.app')
+<head>
+    <title>Play-With-Hero | Edit Information</title>
 <link rel="stylesheet" href="{{ asset('assets/css/edit-profile.css') }}">
+</head>
+
 @section('content')
+
 <style>
 
 

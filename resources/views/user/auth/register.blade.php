@@ -1,3 +1,5 @@
+<!-- Include SweetAlert CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 <link rel="stylesheet" href="{{ asset('assets/css/loginauth.css') }}">
 <main class="main">
     <div class="container">
@@ -101,7 +103,7 @@
                                                 <div class="formUploader__text">No photo chosen, yet!</div>
                                             </div>
                                         </div>
-                                        <input style="color: whitesmoke" name="photo" type="file" class="imgUploader" accept=".jpg, .jpeg, .png">
+                                        <input style="color: whitesmoke" name="profile_picture" type="file" class="imgUploader" accept=".jpg, .jpeg, .png">
                                     </div>
                                 </div>
                                 <div class="register_buttons">
@@ -137,5 +139,27 @@
         </div>
     </div>
 </main>
+<!-- Include SweetAlert CSS -->
+<!-- Include SweetAlert CSS -->
 
+
+<!-- Include SweetAlert JS -->
+<!-- Include SweetAlert JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="{{ asset('assets/script/scriptsauth.js') }}"></script>
+<script>
+    @if ($errors->any())
+        Swal.fire({
+            icon: 'error',
+            title: 'Registration Error',
+            html: `
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            `,
+            confirmButtonText: 'OK'
+        });
+    @endif
+</script>

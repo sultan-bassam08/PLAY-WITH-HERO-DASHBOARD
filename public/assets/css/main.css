@@ -1641,7 +1641,7 @@ address { font-style: italic; }
 	width: 100%;
 	height: 450px;
 	float: left;
-	background: #373542;
+	background-color: #1f2029;
 	padding:250px 0 0;
 	overflow: hidden;
 	position: relative;
@@ -1654,12 +1654,15 @@ address { font-style: italic; }
 	position: absolute;
 	margin: -5% 0 0 -5%;
 	transform-style: preserve-3d;
+	
+	
 }
 .tg-banner-content{
 	width:100%;
 	float:left;
 	text-align:center;
 	position:relative;
+	
 }
 .tg-pagetitle{
 	width:100%;
@@ -1669,7 +1672,7 @@ address { font-style: italic; }
 }
 .tg-pagetitle h1{
 	margin:0;
-	color:#55545d;
+	color:#a18989;
 	position:relative;
 	font:100px/93px 'Oswald', Arial, Helvetica, sans-serif;
 }
@@ -1680,10 +1683,10 @@ address { font-style: italic; }
 	width:100%;
 	height:100%;
 	position:absolute;
-	background: -moz-linear-gradient(top,  rgba(255,255,255,0) 40%, rgba(56,54,67,1) 100%);
-	background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 40%,rgba(56,54,67,1) 100%);
-	background: linear-gradient(to bottom,  rgba(255,255,255,0) 40%,rgba(56,54,67,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#383643',GradientType=0 );
+	background: -moz-linear-gradient(top, rgba(255,255,255,0) 40%, #1f2029 100%);
+background: -webkit-linear-gradient(top, rgba(255,255,255,0) 40%, #1f2029 100%);
+background: linear-gradient(to bottom, rgba(255,255,255,0) 40%, #1f2029 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#1f2029',GradientType=0);
 }
 /*=============================================
 			Main Content

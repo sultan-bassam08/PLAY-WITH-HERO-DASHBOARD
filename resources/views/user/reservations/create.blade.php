@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
-    <title>Book Match Slot</title>
+    <title>Play-With_hero |Book Match Slot</title>
     @include('user.partials.head-2')
 
 </head>

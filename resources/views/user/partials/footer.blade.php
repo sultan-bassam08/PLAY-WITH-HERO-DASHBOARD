@@ -7,10 +7,8 @@
             <!-- Footer Logo and Menu -->
             <div class="footer-brand-wrapper">
 
-                <!-- Logo -->
-                <a href="#" class="logo">
-                    <img src="{{ asset('assets/images/logo.svg') }}" alt="Play With Hero logo">
-                </a>
+                
+               
 
                 <!-- Footer Menu -->
                 <div class="footer-menu-wrapper">
@@ -48,5 +46,8 @@
             </div>
 
         </div>
+        <a href="#top" class="btn btn-primary go-top" data-go-top>
+            <ion-icon name="chevron-up-outline"></ion-icon>
+        </a>
     </div>
 </footer>

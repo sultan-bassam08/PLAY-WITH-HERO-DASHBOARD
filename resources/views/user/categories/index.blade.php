@@ -1,14 +1,16 @@
 
 
        @include('user.partials.head-2')
-<body>
-    
-    <div id="tg-wrapper" class="tg-wrapper tg-haslayout">
-
-        <!--************************************
-            Banner Start
-            *************************************-->
-            <div class="tg-banner tg-haslayout">
+       @include('user.partials.head')
+       <body>
+           
+           <div id="tg-wrapper" class="tg-wrapper tg-haslayout">
+               
+               <!--************************************
+                Banner Start
+                *************************************-->
+                <div class="tg-banner tg-haslayout">
+                
                 <div class="tg-imglayer">
                     <img src="{{ asset('assets/images/bg-pattran.png') }}" alt="image description">
                 </div>
@@ -118,11 +120,12 @@
                         </div>
                         <figcaption class="tg-contentbox">
                             <div class="tg-textcontent">
-                                <h2>{{ $category->description ?? 'Category description will appear here.' }}</h2>
+                                <h2>{{ $category->name ?? 'Category Name' }}</h2>
                                 <div class="tg-description">
-                                    <div class="animated-button">
-                                        <span>Explore Category</span>
-                                    </div>
+                                    <br>
+                                   
+                                <button class="btn primary"><a href="{{ route ('home')  }}">Explore Our Website </a></button>
+                                    
                                 </div>
                             </div>
                         </figcaption>

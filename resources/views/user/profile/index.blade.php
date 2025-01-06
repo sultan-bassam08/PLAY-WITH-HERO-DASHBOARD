@@ -1,5 +1,8 @@
 @extends('user.layouts.app')
+<head>
+<title>Play-With-Hero | Profile</title>
 <link rel="stylesheet" href="{{ asset('assets/css/user-profile.css') }}">
+</head>
 @section('content')
 <style>
      

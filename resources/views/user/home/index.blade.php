@@ -19,11 +19,17 @@
 
           <div class="btn-group">
 
-            <button class="btn btn-primary">
-              <span>Join with us</span>
-
+            @auth
+          <button class="btn btn-primary">
+              <span><a style="color: white" href="{{ route('categories.show', $footballCategory->id) }}">Book a Game</a></span>
               <ion-icon name="play-circle"></ion-icon>
-            </button>
+          </button>
+      @else
+          <button class="btn btn-primary">
+              <span><a style="color: white" href="{{ route('register') }}">Join with us</a></span>
+              <ion-icon name="play-circle"></ion-icon>
+          </button>
+      @endauth
 
             
 
@@ -65,7 +71,9 @@
                   <ion-icon name="arrow-forward-circle-outline"></ion-icon>
                   <span>Find Your Next Match Now</span>
                 </p>
-                <a href="#match-booking" class="btn btn-primary">Book a Game</a>
+                @if($footballCategory)
+                <a href="{{ route('categories.show', $footballCategory->id) }}" class="btn btn-primary">Book a Game</a>
+                @endif
               </div>
             </div>
         
@@ -197,12 +205,7 @@
           </div>
       </section>
       
-      <a href="#top" class="btn btn-primary go-top" data-go-top>
-          <ion-icon name="chevron-up-outline"></ion-icon>
-      </a>
+     
 
-    
-
-
- 
+  
   @endsection

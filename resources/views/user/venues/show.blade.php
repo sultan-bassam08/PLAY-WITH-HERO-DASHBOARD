@@ -2,8 +2,8 @@
 	<meta charset="utf-8">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Soccer BootStrap HTML5 CSS3 Theme</title>
-	<meta name="description" content="">
+	<title>Play-With-Hero |venue details </title>
+	<meta name="description" content="Categories">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- Stylesheets -->
@@ -139,11 +139,11 @@
                                     </div>
                                     <div class="col-md-4">
                                         @if(Auth::check())
-                                        <a href="{{ route('user.reservations.create', $match->id) }}" class="tg-btn">
+                                        <a href="{{ route('user.reservations.create', $match->id) }}" class="btn btn-primary">
                                             Join Match
                                         </a>
                                     @else
-                                        <a href="{{ route('auth.login') }}" class="tg-btn">
+                                        <a href="{{ route('auth.login') }}" class="btn btn-primary">
                                             Login to Join Match
                                         </a>
                                     @endif
